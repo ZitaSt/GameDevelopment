@@ -21,7 +21,7 @@ namespace LittleWarrior.SpawnPoint
         {
             if (spawnedZombies < zombiesInSpawnPoint)
             {
-                if (timeSinceLastSpawn < intervalBetweenSpawns)
+                if (timeSinceLastSpawn >= intervalBetweenSpawns)
                 {
                     SpawnZombie();
                     timeSinceLastSpawn = 0;

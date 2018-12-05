@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LittleWarrior.Enums;
 using LittleWarrior.Managers;
+using LittleWarrior.AI;
 
 namespace LittleWarrior.Weapon
 {
@@ -18,16 +19,23 @@ namespace LittleWarrior.Weapon
 
         [Header("Weapn Config")]
         public Enums.WeaponTypes weaponType;
+        public Enums.ShootingMode shootingMode;
         public float shootingRange = 100.0f;
         public int bulletsPerMag = 12;
         public float fireRate = 0.1f;
         public Transform shootPoint;
+        public float spreadFactor;
+        public int damage;
 
         [Header("Weapn Authestic")]
         public ParticleSystem flare;
         public GameObject bulletsParticle;
         public GameObject bulletsImpact;
         public AudioClip shootSoundEffect;
+        public AudioClip reloadSoundEffect;
+
+        [Header("Debuging")]
+        public Material debugMaterial;
 
 
 
@@ -38,22 +46,22 @@ namespace LittleWarrior.Weapon
             MPI = Managers.LW_PlayerInventory.Instance;
             if(weaponType == null)
             {
-                Debug.LogError("XXXX " + this.transform.name + " Missing weapon type.");
+                Debug.LogWarning("XXXX " + this.transform.name + " Missing weapon type.");
             }
 
             if (shootPoint == null)
             {
-                Debug.LogError("XXXX " + this.transform.name + " - Missing Shoot Point.");
+                Debug.LogWarning("XXXX " + this.transform.name + " - Missing Shoot Point.");
             }
 
             if(flare == null)
             {
-                Debug.LogError("XXXX " + this.transform.name + " - Missing Flare Particle.");
+                Debug.LogWarning("XXXX " + this.transform.name + " - Missing Flare Particle.");
             }
 
             if (shootSoundEffect == null)
             {
-                Debug.LogError("XXXX " + this.transform.name + " - Missing Shooting SFX.");
+                Debug.LogWarning("XXXX " + this.transform.name + " - Missing Shooting SFX.");
             }
 
             _Anim = GetComponent<Animator>();
@@ -74,8 +82,7 @@ namespace LittleWarrior.Weapon
                 }
 
             }
-
-            if(Input.GetKeyDown(KeyCode.R))
+            else if(Input.GetKeyDown(KeyCode.R))
             {
                 if (_BulletsLeft < bulletsPerMag)
                 {
@@ -105,14 +112,33 @@ namespace LittleWarrior.Weapon
                 return;
             }
             RaycastHit hit;
-            if(Physics.Raycast(shootPoint.position, shootPoint.transform.forward, out hit, shootingRange))
+
+            Vector3 shootDirection = shootPoint.transform.forward;
+            shootDirection.x = Random.Range(-spreadFactor, spreadFactor);
+            shootDirection.y = Random.Range(-spreadFactor, spreadFactor);
+
+            if (Physics.Raycast(shootPoint.position, shootDirection, out hit, shootingRange))
             {
                 Debug.Log(">>>> " + hit.transform.name + " is hited!");
+                GameObject go = new GameObject("Ray");
+                go.transform.position = shootPoint.position;
+                go.transform.parent = this.transform;
+                go.AddComponent<LineRenderer>();
+                go.GetComponent<LineRenderer>().useWorldSpace = true;
+                go.GetComponent<LineRenderer>().material = debugMaterial;
+                go.GetComponent<LineRenderer>().positionCount = 2;
+                go.GetComponent<LineRenderer>().SetPosition(0, shootPoint.position);
+                go.GetComponent<LineRenderer>().SetPosition(0, shootDirection * shootingRange);
 
+
+                if (hit.transform.GetComponent<LW_AgentManager>())
+                {
+                    hit.transform.GetComponent<LW_AgentManager>().ApplyDamage(damage);
+                }
             }
             _Anim.CrossFadeInFixedTime("Shoot", 0.01f);
             flare.Play();
-            PlaySoundEffect();
+            PlayShootingSoundEffect();
 
             _BulletsLeft--;
             _LastTimeFiredTimer = 0.0f;
@@ -142,6 +168,7 @@ namespace LittleWarrior.Weapon
                 default:
                     {
                         _BulletsLeft += retrunedCode;
+                        PlayReloadSoundEffect();
                     }
                     break;
             }
@@ -162,9 +189,15 @@ namespace LittleWarrior.Weapon
             _Anim.CrossFadeInFixedTime("Reload", 0.01f);
         }
 
-        private void PlaySoundEffect()
+        private void PlayShootingSoundEffect()
         {
             _AudioSource.clip = shootSoundEffect;
+            _AudioSource.Play();
+        }
+
+        private void PlayReloadSoundEffect()
+        {
+            _AudioSource.clip = reloadSoundEffect;
             _AudioSource.Play();
         }
     }

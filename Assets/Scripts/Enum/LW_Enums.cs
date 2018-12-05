@@ -5,4 +5,10 @@
         Handgun,
         Rifle
     }
+
+    public enum ShootingMode
+    {
+        Auto,
+        Semi
+    }
 }

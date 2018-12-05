@@ -9,7 +9,8 @@ namespace LittleWarrior.AI
     {
         NavMeshAgent nav;
         Transform target;
-        public float Health = 100.0f;
+        [SerializeField]
+        private float Health = 100.0f;
 
         void Awake()
         {
@@ -20,6 +21,16 @@ namespace LittleWarrior.AI
         void Update()
         {
             nav.SetDestination(target.position);
+        }
+
+        public void ApplyDamage(float damage)
+        {
+            Health -= damage;
+
+            if(Health <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

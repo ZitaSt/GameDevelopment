@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 114687861825065282}
   - component: {fileID: 54251575267721394}
   - component: {fileID: 82559037128986712}
+  - component: {fileID: 114555818388161614}
   - component: {fileID: 114335184336563768}
   m_Layer: 0
   m_Name: Player
@@ -204,7 +205,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1534758443345686}
-  m_LocalRotation: {x: 0, y: -0.014224047, z: 0, w: 0.99989885}
+  m_LocalRotation: {x: 0.013114476, y: -0.014222823, z: -0.00018655947, w: 0.99981284}
   m_LocalPosition: {x: 0.1, y: -0.08, z: 0.27}
   m_LocalScale: {x: 0.0074926903, y: 0.0074926903, z: 0.0074926903}
   m_Children:
@@ -215,7 +216,7 @@ Transform:
   - {fileID: 4257886544928948}
   m_Father: {fileID: 4278041861303696}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -1.63, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.5020001, y: -1.631, z: -0.043}
 --- !u!4 &4148101224583230
 Transform:
   m_ObjectHideFlags: 1
@@ -248,13 +249,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1169449532498864}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.013111101, y: -0.014226516, z: -0.0001886371, w: 0.99981284}
   m_LocalPosition: {x: 0.58639, y: -0.16149, z: 9.6322}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4025739593080900}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.502, y: -1.631, z: -0.043}
 --- !u!4 &4278041861303696
 Transform:
   m_ObjectHideFlags: 1
@@ -315,8 +316,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1185042848856336}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalRotation: {x: -0.07584901, y: 0, z: 0, w: 0.9971193}
+  m_LocalPosition: {x: 0.01916634, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4278041861303696}
@@ -562,7 +563,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -772,6 +773,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36c2a70248357848a8386b3c8234f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114555818388161614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1257924277761814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a2155c03acfc04d9a7504430288e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Weapons: []
+  _SwitchDelay: 0
 --- !u!114 &114573684384616956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -784,14 +798,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 0
-  shootingRange: 100
+  shootingMode: 0
+  shootingRange: 500
   bulletsPerMag: 12
   fireRate: 0.5
   shootPoint: {fileID: 4257886544928948}
+  spreadFactor: 0
+  damage: 10
   flare: {fileID: 198999152937096872}
   bulletsParticle: {fileID: 0}
   bulletsImpact: {fileID: 0}
   shootSoundEffect: {fileID: 0}
+  reloadSoundEffect: {fileID: 0}
+  debugMaterial: {fileID: 2100000, guid: 33ae462a3a5bbe5438e9fd58885c5934, type: 2}
 --- !u!114 &114687861825065282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -803,7 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsWalking: 0
+  m_IsWalking: 1
   m_WalkSpeed: 5
   m_RunSpeed: 10
   m_RunstepLenghten: 0.7
@@ -821,8 +840,8 @@ MonoBehaviour:
     lockCursor: 1
   m_UseFovKick: 1
   m_FovKick:
-    Camera: {fileID: 0}
-    originalFov: 0
+    Camera: {fileID: 20669821686042952}
+    originalFov: 60
     FOVIncrease: 3
     TimeToIncrease: 1
     TimeToDecrease: 1
@@ -911,8 +930,8 @@ MonoBehaviour:
     BobAmount: 0.1
   m_StepInterval: 5
   m_FootstepSounds:
-  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
 --- !u!124 &124849928885040790

@@ -1244,7 +1244,7 @@ GameObject:
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1465547903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,7 +1258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombieEnemies:
   - {fileID: 1153971863511468, guid: 50a92eade573bc048935b967fa7e475f, type: 2}
-  zombiesInSpawnPoint: 1
+  zombiesInSpawnPoint: 5
   intervalBetweenSpawns: 3
   spawnPoints:
   - {fileID: 1291885442}
@@ -1866,7 +1866,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2058483103
+--- !u!1001 &2043123985
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2

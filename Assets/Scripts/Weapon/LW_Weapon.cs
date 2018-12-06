@@ -20,12 +20,14 @@ namespace LittleWarrior.Weapon
         [Header("Weapn Config")]
         public Enums.WeaponTypes weaponType;
         public Enums.ShootingMode shootingMode;
+        public GameObject bulletPrefab;
         public float shootingRange = 100.0f;
         public int bulletsPerMag = 12;
+        public float bulletSpeed;
         public float fireRate = 0.1f;
         public Transform shootPoint;
         public float spreadFactor;
-        public int damage;
+        public int bulletDamage;
 
         [Header("Weapn Authestic")]
         public ParticleSystem flare;
@@ -111,31 +113,11 @@ namespace LittleWarrior.Weapon
             {
                 return;
             }
-            RaycastHit hit;
+            GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+            var bp = bullet.GetComponent<LW_Bullet>();
+            bp.Speed = bulletSpeed;
+            bp.Damage = bulletDamage;
 
-            Vector3 shootDirection = shootPoint.transform.forward;
-            shootDirection.x = Random.Range(-spreadFactor, spreadFactor);
-            shootDirection.y = Random.Range(-spreadFactor, spreadFactor);
-
-            if (Physics.Raycast(shootPoint.position, shootDirection, out hit, shootingRange))
-            {
-                Debug.Log(">>>> " + hit.transform.name + " is hited!");
-                GameObject go = new GameObject("Ray");
-                go.transform.position = shootPoint.position;
-                go.transform.parent = this.transform;
-                go.AddComponent<LineRenderer>();
-                go.GetComponent<LineRenderer>().useWorldSpace = true;
-                go.GetComponent<LineRenderer>().material = debugMaterial;
-                go.GetComponent<LineRenderer>().positionCount = 2;
-                go.GetComponent<LineRenderer>().SetPosition(0, shootPoint.position);
-                go.GetComponent<LineRenderer>().SetPosition(0, shootDirection * shootingRange);
-
-
-                if (hit.transform.GetComponent<LW_AgentManager>())
-                {
-                    hit.transform.GetComponent<LW_AgentManager>().ApplyDamage(damage);
-                }
-            }
             _Anim.CrossFadeInFixedTime("Shoot", 0.01f);
             flare.Play();
             PlayShootingSoundEffect();

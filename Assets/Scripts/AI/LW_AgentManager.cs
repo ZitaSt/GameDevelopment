@@ -2,35 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
+using LittleWarrior.Properties;
 
 namespace LittleWarrior.AI
 {
     public class LW_AgentManager : MonoBehaviour
     {
-        NavMeshAgent nav;
-        Transform target;
-        [SerializeField]
-        private float Health = 100.0f;
+        private LW_Health _Health;
+        private LW_Health _TargetHealth;
+        private NavMeshAgent _Nav;
+        private Transform _Target;
+
 
         void Awake()
         {
-            nav = GetComponent<NavMeshAgent>();
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+            _Nav = GetComponent<NavMeshAgent>();
+            _Target = GameObject.FindGameObjectWithTag("Player").transform;
+            _TargetHealth = _Target.GetComponent<LW_Health>();
+            _Health = this.GetComponent<LW_Health>();
         }
 
         void Update()
         {
-            nav.SetDestination(target.position);
-        }
-
-        public void ApplyDamage(float damage)
-        {
-            Health -= damage;
-
-            if(Health <= 0)
+            if (_TargetHealth.currentHealth > 0 && _Health.currentHealth > 0)
+            {
+                _Nav.SetDestination(_Target.position);
+            }
+            else if (_Health.currentHealth == 0)
             {
                 Destroy(gameObject);
             }
+            else {
+                _Nav.enabled = false;
+            }
+
         }
     }
 }

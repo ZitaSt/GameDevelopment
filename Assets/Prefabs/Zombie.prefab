@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4718532448182448}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_toe_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4129235643836686}
   - component: {fileID: 137457209075712086}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Group31640_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4758885800268120}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_hand_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4713840929003940}
   - component: {fileID: 136163341588693676}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4102536070330832}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_shoulder_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,10 +97,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4591717119037384}
   - component: {fileID: 95822931912703972}
+  - component: {fileID: 114586145404575568}
   - component: {fileID: 195522328056483844}
   - component: {fileID: 114411865422484302}
   - component: {fileID: 136523919736556894}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4503353197942030}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4299250902503438}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_shoulder_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4238740421797230}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: defM_shin_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4582207635239688}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_toe_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4604409019553368}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4785839844690902}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4674413931646736}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_upperArmCloth_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4686818091967242}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: defM_shin_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4256939058838854}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4555283596242402}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4320635432348850}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: defM_thigh_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4774575775706042}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: defM_forearm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4015577901631230}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: defM_forearm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4843326115244228}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_upperArmCloth_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4401334809356452}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4580881383908204}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: defM_thigh_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4145927407742884}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4966372197325662}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4724998323043364}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: def_hand_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,7 +771,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5980ff9e1585f045a7777e49b78b2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+--- !u!114 &114586145404575568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153971863511468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e97594922760a4596a9d5efb5a6875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136163341588693676
 CapsuleCollider:
   m_ObjectHideFlags: 1

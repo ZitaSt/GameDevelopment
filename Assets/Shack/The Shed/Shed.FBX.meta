@@ -1,164 +1,186 @@
 fileFormatVersion: 2
-guid: 8d44a8bf542ec854ab6a6c818ea10b8a
-timeCreated: 1463410345
-licenseType: Store
+guid: 8af23a0274872364aa49fe4b21e13047
 ModelImporter:
-  serializedVersion: 18
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: AeroMachine
     100002: Ampoule
-    100004: Animated Door
-    100006: Bidon
-    100008: Bois Coupe
-    100010: Bois Coupe001
-    100012: Boite
-    100014: Bone_Door_Animated
-    100016: Bone_Door_Break
-    100018: Bone_Door_Break001
-    100020: Bone_Door_Break002
-    100022: bone_Door_Fixed
-    100024: Bone_Poignee_Animated
-    100026: Brouette
-    100028: Caisse
-    100030: Chain 2
-    100032: Chaine
-    100034: Chaise cASSE
-    100036: Chaise001
-    100038: Chaise002
-    100040: Chaise003
-    100042: Ciseaux
-    100044: Clede16
-    100046: CutMachine
-    100048: CutMachine001
-    100050: Decal_Debris01
-    100052: Decapsuleur
-    100054: Etagere
-    100056: Grande EcheLle
-    100058: Hache
-    100060: Hachoir
-    100062: Hammer
-    100064: Lierre
-    100066: LongPieux
-    100068: Manivelle
-    100070: Old Lavabo
-    100072: OldShed
-    100074: Palette
-    100076: Petite Echelle
-    100078: Petite Echelle001
-    100080: PetitTruc01
-    100082: PetitTruc02
-    100084: PetitTruc03
-    100086: Pic a Glace
-    100088: Pince01
-    100090: Pince02
-    100092: Plafond
-    100094: Plaque
-    100096: Pompe
-    100098: Pot de Fleur 003
-    100100: Pot de Fleur 004
-    100102: Pot de Fleur 006
-    100104: Pot de fleur 006
-    100106: Pot de Fleur 1
-    100108: Pot de fleur 2
-    100110: Pots de fleurs Casses
-    100112: Pots de fleurs Casses001
-    100114: Pots de fleurs Casses002
-    100116: Pots de fleurs Casses003
-    100118: ScieAMetaux
-    100120: SerreJoints
-    100122: SerreJoints001
-    100124: SerreJoints002
-    100126: SerreJoints003
-    100128: SerreJoints004
-    100130: SerreJoints005
-    100132: //RootNode
-    100134: Tableau
-    100136: Tableau a Outils
-    100138: ToolBox
-    100140: Tournevis Cruciforme
-    100142: Tournevis Plat
-    100144: Tournevis Special
-    100146: Tretaux
-    100148: Tronc
-    100150: Tuyaux
-    100152: WoodClamper
+    100004: Bidon
+    100006: Bois Coupe
+    100008: Bois Coupe001
+    100010: Boite
+    100012: Brouette
+    100014: Caisse
+    100016: Chain 2
+    100018: Chaine
+    100020: Chaise cASSE
+    100022: Chaise001
+    100024: Chaise002
+    100026: Chaise003
+    100028: Ciseaux
+    100030: Clede16
+    100032: CutMachine
+    100034: CutMachine001
+    100036: Decal_Debris01
+    100038: Decapsuleur
+    100040: Etagere
+    100042: Grande EcheLle
+    100044: Hache
+    100046: Hachoir
+    100048: Hammer
+    100050: Lierre
+    100052: LongPieux
+    100054: Manivelle
+    100056: Old Lavabo
+    100058: OldShed
+    100060: Palette
+    100062: Petite Echelle
+    100064: Petite Echelle001
+    100066: PetitTruc01
+    100068: PetitTruc02
+    100070: PetitTruc03
+    100072: Pic a Glace
+    100074: Pince01
+    100076: Pince02
+    100078: Plafond
+    100080: Plaque
+    100082: Pompe
+    100084: Pot de Fleur 003
+    100086: Pot de Fleur 004
+    100088: Pot de Fleur 006
+    100090: Pot de fleur 006
+    100092: Pot de Fleur 1
+    100094: Pot de fleur 2
+    100096: Pots de fleurs Casses
+    100098: Pots de fleurs Casses001
+    100100: Pots de fleurs Casses002
+    100102: Pots de fleurs Casses003
+    100104: ScieAMetaux
+    100106: SerreJoints
+    100108: SerreJoints001
+    100110: SerreJoints002
+    100112: SerreJoints003
+    100114: SerreJoints004
+    100116: SerreJoints005
+    100118: //RootNode
+    100120: Tableau
+    100122: Tableau a Outils
+    100124: ToolBox
+    100126: Tournevis Cruciforme
+    100128: Tournevis Plat
+    100130: Tournevis Special
+    100132: Tretaux
+    100134: Tronc
+    100136: Tuyaux
+    100138: WoodClamper
     400000: AeroMachine
     400002: Ampoule
-    400004: Animated Door
-    400006: Bidon
-    400008: Bois Coupe
-    400010: Bois Coupe001
-    400012: Boite
-    400014: Bone_Door_Animated
-    400016: Bone_Door_Break
-    400018: Bone_Door_Break001
-    400020: Bone_Door_Break002
-    400022: bone_Door_Fixed
-    400024: Bone_Poignee_Animated
-    400026: Brouette
-    400028: Caisse
-    400030: Chain 2
-    400032: Chaine
-    400034: Chaise cASSE
-    400036: Chaise001
-    400038: Chaise002
-    400040: Chaise003
-    400042: Ciseaux
-    400044: Clede16
-    400046: CutMachine
-    400048: CutMachine001
-    400050: Decal_Debris01
-    400052: Decapsuleur
-    400054: Etagere
-    400056: Grande EcheLle
-    400058: Hache
-    400060: Hachoir
-    400062: Hammer
-    400064: Lierre
-    400066: LongPieux
-    400068: Manivelle
-    400070: Old Lavabo
-    400072: OldShed
-    400074: Palette
-    400076: Petite Echelle
-    400078: Petite Echelle001
-    400080: PetitTruc01
-    400082: PetitTruc02
-    400084: PetitTruc03
-    400086: Pic a Glace
-    400088: Pince01
-    400090: Pince02
-    400092: Plafond
-    400094: Plaque
-    400096: Pompe
-    400098: Pot de Fleur 003
-    400100: Pot de Fleur 004
-    400102: Pot de Fleur 006
-    400104: Pot de fleur 006
-    400106: Pot de Fleur 1
-    400108: Pot de fleur 2
-    400110: Pots de fleurs Casses
-    400112: Pots de fleurs Casses001
-    400114: Pots de fleurs Casses002
-    400116: Pots de fleurs Casses003
-    400118: ScieAMetaux
-    400120: SerreJoints
-    400122: SerreJoints001
-    400124: SerreJoints002
-    400126: SerreJoints003
-    400128: SerreJoints004
-    400130: SerreJoints005
-    400132: //RootNode
-    400134: Tableau
-    400136: Tableau a Outils
-    400138: ToolBox
-    400140: Tournevis Cruciforme
-    400142: Tournevis Plat
-    400144: Tournevis Special
-    400146: Tretaux
-    400148: Tronc
-    400150: Tuyaux
-    400152: WoodClamper
+    400004: Bidon
+    400006: Bois Coupe
+    400008: Bois Coupe001
+    400010: Boite
+    400012: Brouette
+    400014: Caisse
+    400016: Chain 2
+    400018: Chaine
+    400020: Chaise cASSE
+    400022: Chaise001
+    400024: Chaise002
+    400026: Chaise003
+    400028: Ciseaux
+    400030: Clede16
+    400032: CutMachine
+    400034: CutMachine001
+    400036: Decal_Debris01
+    400038: Decapsuleur
+    400040: Etagere
+    400042: Grande EcheLle
+    400044: Hache
+    400046: Hachoir
+    400048: Hammer
+    400050: Lierre
+    400052: LongPieux
+    400054: Manivelle
+    400056: Old Lavabo
+    400058: OldShed
+    400060: Palette
+    400062: Petite Echelle
+    400064: Petite Echelle001
+    400066: PetitTruc01
+    400068: PetitTruc02
+    400070: PetitTruc03
+    400072: Pic a Glace
+    400074: Pince01
+    400076: Pince02
+    400078: Plafond
+    400080: Plaque
+    400082: Pompe
+    400084: Pot de Fleur 003
+    400086: Pot de Fleur 004
+    400088: Pot de Fleur 006
+    400090: Pot de fleur 006
+    400092: Pot de Fleur 1
+    400094: Pot de fleur 2
+    400096: Pots de fleurs Casses
+    400098: Pots de fleurs Casses001
+    400100: Pots de fleurs Casses002
+    400102: Pots de fleurs Casses003
+    400104: ScieAMetaux
+    400106: SerreJoints
+    400108: SerreJoints001
+    400110: SerreJoints002
+    400112: SerreJoints003
+    400114: SerreJoints004
+    400116: SerreJoints005
+    400118: //RootNode
+    400120: Tableau
+    400122: Tableau a Outils
+    400124: ToolBox
+    400126: Tournevis Cruciforme
+    400128: Tournevis Plat
+    400130: Tournevis Special
+    400132: Tretaux
+    400134: Tronc
+    400136: Tuyaux
+    400138: WoodClamper
+    2100000: WoodPlankDirty55
+    2100002: WoodPlankDirty63
+    2100004: WoodPLankVarious
+    2100006: DecalRusted
+    2100008: PlyWoodOld
+    2100010: Window
+    2100012: Lierre Tronc
+    2100014: Lierre feuilles
+    2100016: 3_Tournevis_Default_Default
+    2100018: Pompe
+    2100020: SerreJoints
+    2100022: WoodClamper
+    2100024: CutMachine
+    2100026: AeroMachine
+    2100028: RetopoGroup1_Default
+    2100030: PotsDeFleurs
+    2100032: OldBox
+    2100034: Lavabo
+    2100036: PetiteEchelle
+    2100038: Chaise
+    2100040: Grande Echelle
+    2100042: Brouette
+    2100044: Rondins
+    2100046: Tronc
+    2100048: Hache
+    2100050: Plafond
+    2100052: Etageres
+    2100054: Tuyaux
+    2100056: Tretaux
+    2100058: Chain
+    2100060: Caisse
+    2100062: Plaque Egout
+    2100064: ToolBox
+    2100066: Ampoule
+    2100068: Bidon
+    2100070: Decal_Debris
+    2100072: Tableau
+    2100074: TableauTool
     2300000: AeroMachine
     2300002: Ampoule
     2300004: Bidon
@@ -330,461 +352,121 @@ ModelImporter:
     4300060: Chaise002
     4300062: Chaise003
     4300064: Chaise cASSE
-    4300066: Animated Door
-    4300068: Grande EcheLle
-    4300070: Brouette
-    4300072: Pots de fleurs Casses003
-    4300074: Pot de Fleur 006
-    4300076: Bois Coupe
-    4300078: Tronc
-    4300080: Hache
-    4300082: Plafond
-    4300084: Etagere
-    4300086: Tuyaux
-    4300088: Tretaux
-    4300090: Chaine
-    4300092: Chain 2
-    4300094: Bois Coupe001
-    4300096: Palette
-    4300098: Caisse
-    4300100: Plaque
-    4300102: ToolBox
-    4300104: Ampoule
-    4300106: Bidon
-    4300108: Decal_Debris01
-    4300110: Tableau
-    4300112: Tableau a Outils
-    4300114: Hachoir
-    4300116: Clede16
-    4300118: Decapsuleur
-    4300120: LongPieux
-    4300122: PetitTruc01
-    4300124: PetitTruc02
-    4300126: PetitTruc03
-    4300128: Manivelle
-    4300130: Pic a Glace
-    4300132: Pince01
-    4300134: Pince02
-    4300136: Ciseaux
-    4300138: ScieAMetaux
-    7400000: Breaking down
-    7400002: Opening
-    9500000: //RootNode
-    13700000: Animated Door
+    4300066: Grande EcheLle
+    4300068: Brouette
+    4300070: Pots de fleurs Casses003
+    4300072: Pot de Fleur 006
+    4300074: Bois Coupe
+    4300076: Tronc
+    4300078: Hache
+    4300080: Plafond
+    4300082: Etagere
+    4300084: Tuyaux
+    4300086: Tretaux
+    4300088: Chaine
+    4300090: Chain 2
+    4300092: Bois Coupe001
+    4300094: Palette
+    4300096: Caisse
+    4300098: Plaque
+    4300100: ToolBox
+    4300102: Ampoule
+    4300104: Bidon
+    4300106: Decal_Debris01
+    4300108: Tableau
+    4300110: Tableau a Outils
+    4300112: Hachoir
+    4300114: Clede16
+    4300116: Decapsuleur
+    4300118: LongPieux
+    4300120: PetitTruc01
+    4300122: PetitTruc02
+    4300124: PetitTruc03
+    4300126: Manivelle
+    4300128: Pic a Glace
+    4300130: Pince01
+    4300132: Pince02
+    4300134: Ciseaux
+    4300136: ScieAMetaux
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Breaking down
-      takeName: Take 001
-      firstFrame: 0
-      lastFrame: 95
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: AeroMachine
-        weight: 1
-      - path: Ampoule
-        weight: 1
-      - path: Animated Door
-        weight: 1
-      - path: Bidon
-        weight: 1
-      - path: Bois Coupe
-        weight: 1
-      - path: Bois Coupe001
-        weight: 1
-      - path: Boite
-        weight: 1
-      - path: bone_Door_Fixed
-        weight: 1
-      - path: bone_Door_Fixed/Bone_Door_Animated
-        weight: 1
-      - path: bone_Door_Fixed/Bone_Door_Animated/Bone_Door_Break001
-        weight: 1
-      - path: bone_Door_Fixed/Bone_Door_Animated/Bone_Poignee_Animated
-        weight: 1
-      - path: bone_Door_Fixed/Bone_Door_Break
-        weight: 1
-      - path: bone_Door_Fixed/Bone_Door_Break002
-        weight: 1
-      - path: Brouette
-        weight: 1
-      - path: Caisse
-        weight: 1
-      - path: Chain 2
-        weight: 1
-      - path: Chaine
-        weight: 1
-      - path: Chaise cASSE
-        weight: 1
-      - path: Chaise001
-        weight: 1
-      - path: Chaise002
-        weight: 1
-      - path: Chaise003
-        weight: 1
-      - path: Ciseaux
-        weight: 1
-      - path: Clede16
-        weight: 1
-      - path: CutMachine
-        weight: 1
-      - path: CutMachine001
-        weight: 1
-      - path: Decal_Debris01
-        weight: 1
-      - path: Decapsuleur
-        weight: 1
-      - path: Etagere
-        weight: 1
-      - path: Grande EcheLle
-        weight: 1
-      - path: Hache
-        weight: 1
-      - path: Hachoir
-        weight: 1
-      - path: Hammer
-        weight: 1
-      - path: Lierre
-        weight: 1
-      - path: LongPieux
-        weight: 1
-      - path: Manivelle
-        weight: 1
-      - path: Old Lavabo
-        weight: 1
-      - path: OldShed
-        weight: 1
-      - path: Palette
-        weight: 1
-      - path: Petite Echelle
-        weight: 1
-      - path: Petite Echelle001
-        weight: 1
-      - path: PetitTruc01
-        weight: 1
-      - path: PetitTruc02
-        weight: 1
-      - path: PetitTruc03
-        weight: 1
-      - path: Pic a Glace
-        weight: 1
-      - path: Pince01
-        weight: 1
-      - path: Pince02
-        weight: 1
-      - path: Plafond
-        weight: 1
-      - path: Plaque
-        weight: 1
-      - path: Pompe
-        weight: 1
-      - path: Pot de Fleur 1
-        weight: 1
-      - path: Pot de fleur 2
-        weight: 1
-      - path: Pot de Fleur 003
-        weight: 1
-      - path: Pot de Fleur 004
-        weight: 1
-      - path: Pot de Fleur 006
-        weight: 1
-      - path: Pot de fleur 006
-        weight: 1
-      - path: Pots de fleurs Casses
-        weight: 1
-      - path: Pots de fleurs Casses001
-        weight: 1
-      - path: Pots de fleurs Casses002
-        weight: 1
-      - path: Pots de fleurs Casses003
-        weight: 1
-      - path: ScieAMetaux
-        weight: 1
-      - path: SerreJoints
-        weight: 1
-      - path: SerreJoints001
-        weight: 1
-      - path: SerreJoints002
-        weight: 1
-      - path: SerreJoints003
-        weight: 1
-      - path: SerreJoints004
-        weight: 1
-      - path: SerreJoints005
-        weight: 1
-      - path: Tableau
-        weight: 1
-      - path: Tableau a Outils
-        weight: 1
-      - path: ToolBox
-        weight: 1
-      - path: Tournevis Cruciforme
-        weight: 1
-      - path: Tournevis Plat
-        weight: 1
-      - path: Tournevis Special
-        weight: 1
-      - path: Tretaux
-        weight: 1
-      - path: Tronc
-        weight: 1
-      - path: Tuyaux
-        weight: 1
-      - path: WoodClamper
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-    - serializedVersion: 16
-      name: Opening
-      takeName: Take 001
-      firstFrame: 95
-      lastFrame: 125
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: AeroMachine
-        weight: 1
-      - path: Ampoule
-        weight: 1
-      - path: Animated Door
-        weight: 1
-      - path: Bidon
-        weight: 1
-      - path: Bois Coupe
-        weight: 1
-      - path: Bois Coupe001
-        weight: 1
-      - path: Boite
-        weight: 1
-      - path: bone_Door_Fixed
-        weight: 1
-      - path: bone_Door_Fixed/Bone_Door_Animated
-        weight: 1
-      - path: bone_Door_Fixed/Bone_Door_Animated/Bone_Door_Break001
-        weight: 1
-      - path: bone_Door_Fixed/Bone_Door_Animated/Bone_Poignee_Animated
-        weight: 1
-      - path: bone_Door_Fixed/Bone_Door_Break
-        weight: 1
-      - path: bone_Door_Fixed/Bone_Door_Break002
-        weight: 1
-      - path: Brouette
-        weight: 1
-      - path: Caisse
-        weight: 1
-      - path: Chain 2
-        weight: 1
-      - path: Chaine
-        weight: 1
-      - path: Chaise cASSE
-        weight: 1
-      - path: Chaise001
-        weight: 1
-      - path: Chaise002
-        weight: 1
-      - path: Chaise003
-        weight: 1
-      - path: Ciseaux
-        weight: 1
-      - path: Clede16
-        weight: 1
-      - path: CutMachine
-        weight: 1
-      - path: CutMachine001
-        weight: 1
-      - path: Decal_Debris01
-        weight: 1
-      - path: Decapsuleur
-        weight: 1
-      - path: Etagere
-        weight: 1
-      - path: Grande EcheLle
-        weight: 1
-      - path: Hache
-        weight: 1
-      - path: Hachoir
-        weight: 1
-      - path: Hammer
-        weight: 1
-      - path: Lierre
-        weight: 1
-      - path: LongPieux
-        weight: 1
-      - path: Manivelle
-        weight: 1
-      - path: Old Lavabo
-        weight: 1
-      - path: OldShed
-        weight: 1
-      - path: Palette
-        weight: 1
-      - path: Petite Echelle
-        weight: 1
-      - path: Petite Echelle001
-        weight: 1
-      - path: PetitTruc01
-        weight: 1
-      - path: PetitTruc02
-        weight: 1
-      - path: PetitTruc03
-        weight: 1
-      - path: Pic a Glace
-        weight: 1
-      - path: Pince01
-        weight: 1
-      - path: Pince02
-        weight: 1
-      - path: Plafond
-        weight: 1
-      - path: Plaque
-        weight: 1
-      - path: Pompe
-        weight: 1
-      - path: Pot de Fleur 1
-        weight: 1
-      - path: Pot de fleur 2
-        weight: 1
-      - path: Pot de Fleur 003
-        weight: 1
-      - path: Pot de Fleur 004
-        weight: 1
-      - path: Pot de Fleur 006
-        weight: 1
-      - path: Pot de fleur 006
-        weight: 1
-      - path: Pots de fleurs Casses
-        weight: 1
-      - path: Pots de fleurs Casses001
-        weight: 1
-      - path: Pots de fleurs Casses002
-        weight: 1
-      - path: Pots de fleurs Casses003
-        weight: 1
-      - path: ScieAMetaux
-        weight: 1
-      - path: SerreJoints
-        weight: 1
-      - path: SerreJoints001
-        weight: 1
-      - path: SerreJoints002
-        weight: 1
-      - path: SerreJoints003
-        weight: 1
-      - path: SerreJoints004
-        weight: 1
-      - path: SerreJoints005
-        weight: 1
-      - path: Tableau
-        weight: 1
-      - path: Tableau a Outils
-        weight: 1
-      - path: ToolBox
-        weight: 1
-      - path: Tournevis Cruciforme
-        weight: 1
-      - path: Tournevis Plat
-        weight: 1
-      - path: Tournevis Special
-        weight: 1
-      - path: Tretaux
-        weight: 1
-      - path: Tronc
-        weight: 1
-      - path: Tuyaux
-        weight: 1
-      - path: WoodClamper
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
+    extraUserProperties: []
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 1
     importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 1
-  importAnimation: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

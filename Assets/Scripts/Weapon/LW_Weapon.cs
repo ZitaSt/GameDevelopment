@@ -39,6 +39,15 @@ namespace LittleWarrior.Weapon
         [Header("Debuging")]
         public Material debugMaterial;
 
+        [Header("Vive Setting")]
+        public GameObject controllerRight;
+        public GameObject controllerLeft;
+
+        private SteamVR_Controller.Device _RightDevice;
+        private SteamVR_TrackedObject _RightTrackedObject;
+
+        private SteamVR_TrackedController _RightController;
+        
 
 
         void Start()
@@ -46,6 +55,11 @@ namespace LittleWarrior.Weapon
             _BulletsLeft = bulletsPerMag;
             _AudioSource = GetComponent<AudioSource>();
             MPI = Managers.LW_PlayerInventory.Instance;
+
+            _RightController = controllerRight.GetComponent<SteamVR_TrackedController>();
+            _RightController.TriggerClicked += RightTriggerPressed;
+            _RightTrackedObject = controllerRight.GetComponent<SteamVR_TrackedObject>();
+
             if(weaponType == null)
             {
                 Debug.LogWarning("XXXX " + this.transform.name + " Missing weapon type.");
@@ -72,26 +86,27 @@ namespace LittleWarrior.Weapon
 
         void Update()
         {
-            if (Input.GetButton("Fire1"))
-            {
-                if(_BulletsLeft > 0 && !_IsReloading)
-                {
-                    Fire();
-                }
-                else
-                {
-                    DoReload();
-                }
+            //NOTE (skn): Fire and reload using keyboard
+            //if (Input.GetButton("Fire1"))
+            //{
+            //    if(_BulletsLeft > 0 && !_IsReloading)
+            //    {
+            //        Fire();
+            //    }
+            //    else
+            //    {
+            //        DoReload();
+            //    }
 
-            }
-            else if(Input.GetKeyDown(KeyCode.R))
-            {
-                if (_BulletsLeft < bulletsPerMag)
-                {
-                    DoReload();
-                }
+            //}
+            //else if(Input.GetKeyDown(KeyCode.R))
+            //{
+            //    if (_BulletsLeft < bulletsPerMag)
+            //    {
+            //        DoReload();
+            //    }
                 
-            }
+            //}
 
             if(_LastTimeFiredTimer < fireRate)
             {
@@ -106,6 +121,26 @@ namespace LittleWarrior.Weapon
             _IsReloading = _AnimInfo.IsName("Reload");
         }
 
+        private void RightTriggerPressed(object sender, ClickedEventArgs e)
+        {
+            if (_BulletsLeft > 0 && !_IsReloading)
+            {
+                Fire();
+            }
+            else
+            {
+                DoReload();
+            }
+        }
+
+        private void LeftTriggerPressed(object sender, ClickedEventArgs e)
+        {
+            if (_BulletsLeft < bulletsPerMag)
+            {
+                DoReload();
+            }
+        }
+
         private void Fire()
         {
             if(_LastTimeFiredTimer < fireRate ||
@@ -117,6 +152,9 @@ namespace LittleWarrior.Weapon
             var bp = bullet.GetComponent<LW_Bullet>();
             bp.Speed = bulletSpeed;
             bp.Damage = bulletDamage;
+
+            _RightDevice = SteamVR_Controller.Input((int)_RightTrackedObject.index);
+            _RightDevice.TriggerHapticPulse(750);
 
             _Anim.CrossFadeInFixedTime("Shoot", 0.01f);
             flare.Play();

@@ -353,7 +353,9 @@ GameObject:
   - component: {fileID: 95050920868106308}
   - component: {fileID: 54883072352018046}
   - component: {fileID: 136541158847485364}
-  - component: {fileID: 114826528240450432}
+  - component: {fileID: 114787563091653538}
+  - component: {fileID: 195520918805567836}
+  - component: {fileID: 114635268519523274}
   m_Layer: 10
   m_Name: MobileFreeZombieSimpleMovement
   m_TagString: Untagged
@@ -918,7 +920,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114826528240450432
+--- !u!114 &114635268519523274
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -926,14 +928,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1750036454947828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58d6da23a2cbdbf419e581162aa2eaaf, type: 3}
+  m_Script: {fileID: 11500000, guid: 47e97594922760a4596a9d5efb5a6875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 0.3
-  m_turnSpeed: 100
-  m_animator: {fileID: 95050920868106308}
-  m_rigidBody: {fileID: 54883072352018046}
-  m_controlMode: 0
+--- !u!114 &114787563091653538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750036454947828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5980ff9e1585f045a7777e49b78b2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136541158847485364
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1022,3 +1030,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.22611654, y: 0.003887251, z: 0}
     m_Extent: {x: 0.5238398, y: 0.20348991, z: 0.30575648}
   m_DirtyAABB: 0
+--- !u!195 &195520918805567836
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750036454947828}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.4
+  m_Speed: 2
+  m_Acceleration: 4
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0.18
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

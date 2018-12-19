@@ -13,6 +13,17 @@ namespace LittleWarrior.AI
         private NavMeshAgent _Nav;
         private Transform _Target;
 
+        private Animator _Anim;
+
+        private float _AttackingDistance;
+        private float _FollowingDistance;
+        private float _AttackProbability;
+        private float _DamagePoints;
+
+        [Header("Authestics")]
+        public AudioClip attackSound;
+
+
 
         void Awake()
         {
@@ -20,22 +31,59 @@ namespace LittleWarrior.AI
             _Target = GameObject.FindGameObjectWithTag("Player").transform;
             _TargetHealth = _Target.GetComponent<LW_Health>();
             _Health = this.GetComponent<LW_Health>();
+            _Anim = this.GetComponent<Animator>();
+        }
+
+        void Start()
+        {
+
         }
 
         void Update()
         {
-            if (_TargetHealth.currentHealth > 0 && _Health.currentHealth > 0)
+            if(_Nav.enabled)
             {
-                _Nav.SetDestination(_Target.position);
+                float distance = Vector3.Distance(_Target.transform.position,
+                                                  this.transform.position);
+                bool attack = false;
+                bool follow = (distance < _FollowingDistance);
+
+                if(follow)
+                {
+                    float random = Random.Range(0.0f, 1.0f);
+                    if (random > (1 - _AttackProbability) && distance < _AttackingDistance)
+                    {
+                        attack = true;
+                    }
+                }
+
+                if(follow)
+                {
+                    if (_TargetHealth.currentHealth > 0 && _Health.currentHealth > 0)
+                    {
+                        _Nav.SetDestination(_Target.position);
+                    }
+                }
+
+                if(!follow || attack)
+                {
+                    _Nav.SetDestination(this.transform.position);
+                }
+
+                _Anim.SetBool("Attack", attack);
+                _Anim.SetBool("Walk", follow);
             }
-            else if (_Health.currentHealth == 0)
+
+            if (_Health.currentHealth == 0)
             {
                 Destroy(gameObject);
             }
-            else {
-                _Nav.enabled = false;
-            }
+        }
 
+        private void PlayAttackingSoundEffect()
+        {
+            //_AudioSource.clip = shootSoundEffect;
+            //_AudioSource.Play();
         }
     }
 }

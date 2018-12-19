@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 458974}
   - component: {fileID: 11411726}
   - component: {fileID: 114785333736081854}
+  - component: {fileID: 114559323330800992}
   m_Layer: 9
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -96,7 +97,12 @@ GameObject:
   m_Component:
   - component: {fileID: 402434}
   - component: {fileID: 11463128}
-  - component: {fileID: 114167142761978748}
+  - component: {fileID: 114495007059356504}
+  - component: {fileID: 54688427808641756}
+  - component: {fileID: 138717527348086846}
+  - component: {fileID: 135236692660040838}
+  - component: {fileID: 114561694359181054}
+  - component: {fileID: 114394326511395668}
   m_Layer: 9
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -930,6 +936,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1071067182444374}
   m_Mesh: {fileID: 4300000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
+--- !u!54 &54688427808641756
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159396}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!82 &82823655099297828
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1043,7 +1064,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114167142761978748
+--- !u!114 &114394326511395668
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1051,16 +1072,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 159396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7346a42905a29b347b1f492e8ad7b49f, type: 3}
+  m_Script: {fileID: 11500000, guid: d98ca20e021af2340be26e59536566aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerIndex: 0
-  triggerPressed: 0
-  steamPressed: 0
-  menuPressed: 0
-  padPressed: 0
-  padTouched: 0
-  gripped: 0
 --- !u!114 &114466994262357720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1091,6 +1105,46 @@ MonoBehaviour:
   debugMaterial: {fileID: 2100000, guid: 33ae462a3a5bbe5438e9fd58885c5934, type: 2}
   controllerRight: {fileID: 159396}
   controllerLeft: {fileID: 124034}
+--- !u!114 &114495007059356504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7346a42905a29b347b1f492e8ad7b49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 0
+  triggerPressed: 0
+  steamPressed: 0
+  menuPressed: 0
+  padPressed: 0
+  padTouched: 0
+  gripped: 0
+--- !u!114 &114559323330800992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98ca20e021af2340be26e59536566aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114561694359181054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057e0cb83ddd2094c81c39e0f6846066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114785333736081854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1123,6 +1177,31 @@ MonoBehaviour:
   swayAmount: 0.02
   swaysmoothnes: 0.6
   swayRange: 6
+--- !u!135 &135236692660040838
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!138 &138717527348086846
+FixedJoint:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159396}
+  m_ConnectedBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!198 &198282063282904772
 ParticleSystem:
   m_ObjectHideFlags: 1

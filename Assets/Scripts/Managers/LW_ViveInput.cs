@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using LittleWarrior.Weapon;
 
 namespace LittleWarrior.Managers
 {
@@ -10,10 +11,13 @@ namespace LittleWarrior.Managers
         public SteamVR_Controller.Device device;
 
         private SteamVR_TrackedObject _TrackedObject = null;
+        private LW_Weapon _CurrentWeapon= null;
 
         private void Awake()
         {
             _TrackedObject = GetComponent<SteamVR_TrackedObject>();
+
+            _CurrentWeapon = GetComponentInChildren<LW_Weapon>();
         }
 
         // Update is called once per frame
@@ -30,6 +34,7 @@ namespace LittleWarrior.Managers
             if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
             {
                 print("Trigger Down");
+                _CurrentWeapon.RightTriggerPressed();
             }
 
             if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))

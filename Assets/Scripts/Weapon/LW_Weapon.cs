@@ -15,7 +15,7 @@ namespace LittleWarrior.Weapon
         private float _LastTimeFiredTimer;
         private bool _IsReloading = false;
         private Managers.LW_PlayerInventory MPI;
-        private int _BulletsLeft;
+        private int _BulletsLeft = 0;
 
         [Header("Weapn Config")]
         public Enums.WeaponTypes weaponType;
@@ -43,22 +43,11 @@ namespace LittleWarrior.Weapon
         public GameObject controllerRight;
         public GameObject controllerLeft;
 
-        private SteamVR_Controller.Device _RightDevice;
-        private SteamVR_TrackedObject _RightTrackedObject;
-
-        private SteamVR_TrackedController _RightController;
-        
-
-
         void Start()
         {
             _BulletsLeft = bulletsPerMag;
             _AudioSource = GetComponent<AudioSource>();
             MPI = Managers.LW_PlayerInventory.Instance;
-
-            _RightController = controllerRight.GetComponent<SteamVR_TrackedController>();
-            _RightController.TriggerClicked += RightTriggerPressed;
-            _RightTrackedObject = controllerRight.GetComponent<SteamVR_TrackedObject>();
 
             if(weaponType == null)
             {
@@ -86,18 +75,6 @@ namespace LittleWarrior.Weapon
 
         void Update()
         {
-            //NOTE (skn): Fire and reload using keyboard
-            //if (Input.GetButton("Fire1"))
-            //{
-            //    if(_BulletsLeft > 0 && !_IsReloading)
-            //    {
-            //        Fire();
-            //    }
-            //    else
-            //    {
-            //        DoReload();
-            //    }
-
             //}
             //else if(Input.GetKeyDown(KeyCode.R))
             //{
@@ -121,7 +98,7 @@ namespace LittleWarrior.Weapon
             _IsReloading = _AnimInfo.IsName("Reload");
         }
 
-        private void RightTriggerPressed(object sender, ClickedEventArgs e)
+        public void RightTriggerPressed()
         {
             if (_BulletsLeft > 0 && !_IsReloading)
             {
@@ -133,7 +110,7 @@ namespace LittleWarrior.Weapon
             }
         }
 
-        private void LeftTriggerPressed(object sender, ClickedEventArgs e)
+        public void LeftTriggerPressed()
         {
             if (_BulletsLeft < bulletsPerMag)
             {
@@ -152,9 +129,6 @@ namespace LittleWarrior.Weapon
             var bp = bullet.GetComponent<LW_Bullet>();
             bp.Speed = bulletSpeed;
             bp.Damage = bulletDamage;
-
-            _RightDevice = SteamVR_Controller.Input((int)_RightTrackedObject.index);
-            _RightDevice.TriggerHapticPulse(750);
 
             _Anim.CrossFadeInFixedTime("Shoot", 0.01f);
             flare.Play();

@@ -36,13 +36,17 @@ namespace LittleWarrior.AI
 
         void Start()
         {
-
+            //TODO (skn): Read data from file
+            _FollowingDistance = 500.0f;
+            _AttackProbability = 80.0f;
+            _AttackingDistance = 1.0f;
         }
 
         void Update()
         {
             if(_Nav.enabled)
             {
+                Debug.Log("I am here!");
                 float distance = Vector3.Distance(_Target.transform.position,
                                                   this.transform.position);
                 bool attack = false;
@@ -67,6 +71,7 @@ namespace LittleWarrior.AI
 
                 if(!follow || attack)
                 {
+                    this.transform.LookAt(_Target.transform);
                     _Nav.SetDestination(this.transform.position);
                 }
 

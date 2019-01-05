@@ -90,7 +90,7 @@ namespace LittleWarrior.Weapon
                                                       bimp.transform.position.z + 0.06f);
 
                 Destroy(bimp, 10f);
-                Debug.Break();
+                //Debug.Break();
                 //TODO (skn): Register particles to a proper manager
             }
 

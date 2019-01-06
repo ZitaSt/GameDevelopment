@@ -47,8 +47,8 @@ namespace LittleWarrior.Weapon
             }
         }
 
-        private float _Speed;
-        private float _Damage;
+        private float _Speed = 0;
+        private float _Damage = 0;
 
         public GameObject hitParticle;
         public GameObject bulletImpact;
@@ -61,15 +61,19 @@ namespace LittleWarrior.Weapon
         void OnCollisionEnter(Collision col)
         {
             var hit = col.gameObject;
-            var health = hit.GetComponent<LW_Health>();
-            if(health != null)
+            var target = hit.GetComponent<LW_Target>();
+            if(target != null)
             {
                 GameObject hpar = Instantiate(hitParticle,
                                         this.transform.position,
                                         Quaternion.FromToRotation(Vector3.up, 
                                         col.transform.position.normalized));
-                health.TakeDamage(_Damage);
+                target.TakeDamage(_Damage);
                 Destroy(hpar, 0.4f);
+            }
+            else if(target.CompareTag("EnemiesParent"))
+            {
+                return;
             }
             else
             {
@@ -90,15 +94,9 @@ namespace LittleWarrior.Weapon
                                                       bimp.transform.position.z + 0.06f);
 
                 Destroy(bimp, 10f);
-                //Debug.Break();
                 //TODO (skn): Register particles to a proper manager
-            }
-
-
+            } 
             Destroy(gameObject);
         }
     }
-    
-
 }
-

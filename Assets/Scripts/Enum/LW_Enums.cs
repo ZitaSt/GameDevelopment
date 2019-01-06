@@ -11,4 +11,16 @@
         Auto,
         Semi
     }
+
+    public enum GameState
+    {
+        Intro,
+        MainMenu,
+        PauseMenu,
+        GameOver,
+        ShopArea,
+        CreditsMenu,
+        Level001,
+        Level002
+    }
 }

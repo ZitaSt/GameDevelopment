@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 using LittleWarrior.Weapon;
+using LittleWarrior.Properties;
 
 namespace LittleWarrior.Managers
 {
@@ -11,7 +12,8 @@ namespace LittleWarrior.Managers
         public SteamVR_Controller.Device device;
 
         private SteamVR_TrackedObject _TrackedObject = null;
-        private LW_Weapon _CurrentWeapon= null;
+        private LW_Weapon _CurrentWeapon = null;
+        private LW_ViveInteraction _InteractableObject = null;
 
         private void Awake()
         {
@@ -43,6 +45,11 @@ namespace LittleWarrior.Managers
             }
 
             Vector2 triggerValue = device.GetAxis(EVRButtonId.k_EButton_SteamVR_Trigger);
+
+            //TODO (skn): Can set the VIVE trigger rotation to the actual weapon trigger
+            //            just uncomment this section and the region code applyactualtrigger
+            //            in weapn class
+            //_CurrentWeapon.SetTriggerRotation(triggerValue.x);
             #endregion
 
             #region Grip

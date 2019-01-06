@@ -46,7 +46,6 @@ namespace LittleWarrior.AI
         {
             if(_Nav.enabled)
             {
-                Debug.Log("I am here!");
                 float distance = Vector3.Distance(_Target.transform.position,
                                                   this.transform.position);
                 bool attack = false;
@@ -81,7 +80,7 @@ namespace LittleWarrior.AI
 
             if (_Health.currentHealth == 0)
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
 

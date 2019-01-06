@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LittleWarrior.Properties
 {
-    public abstract class LW_Health : MonoBehaviour
+    public class LW_Health : MonoBehaviour
     {
         [SerializeField]
         private const float maxHealth = 100.0f;
@@ -15,7 +15,14 @@ namespace LittleWarrior.Properties
             currentHealth = maxHealth;
         }
 
-        public abstract void TakeDamage(float amount);
+        public void TakeDamage(float amount)
+        {
+            currentHealth -= amount;
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+            }
+        }
     }
 }
-

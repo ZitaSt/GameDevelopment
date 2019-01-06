@@ -11,11 +11,11 @@ namespace LittleWarrior.SpawnPoint
     {
         public GameObject[] zombieEnemies;
 
-        public int zombiesInSpawnPoint = 5;
+        public int zombiesInSpawnPoint = 0;
         public float intervalBetweenSpawns = 3;
         private float timeSinceLastSpawn = 0f;
         private int spawnedZombies = 0;
-        private LW_GameManager _gameManager;
+        private LW_LevelManager _gameManager;
 
         public Transform[] spawnPoints;
 
@@ -24,14 +24,14 @@ namespace LittleWarrior.SpawnPoint
             GameObject go = GameObject.FindWithTag("LevelManager");
             if(go)
             {
-                _gameManager = go.GetComponent<LW_GameManager>();
+                _gameManager = go.GetComponent<LW_LevelManager>();
             }
             else
             {
                 //TODO (skn): Ask someone to instantiate LevelManager
                 Debug.LogError("XXXX - Unable to find level manager.");
             }
-
+            _gameManager.SPRegister(this.gameObject, zombiesInSpawnPoint);
         }
         void Update()
         {
@@ -64,7 +64,7 @@ namespace LittleWarrior.SpawnPoint
                                         finalSpawnLocation, 
                                         Quaternion.identity);
             spawnedZombies++;
-            _gameManager.AliveEnemis.Add(go.transform);
+            _gameManager.ERegister(go.transform);
             GameObject pgo = GameObject.FindGameObjectWithTag("EnemiesParent");
             go.transform.SetParent(pgo.transform);
         }

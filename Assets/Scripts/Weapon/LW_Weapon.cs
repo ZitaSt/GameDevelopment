@@ -36,12 +36,17 @@ namespace LittleWarrior.Weapon
         public AudioClip shootSoundEffect;
         public AudioClip reloadSoundEffect;
 
-        [Header("Debuging")]
-        public Material debugMaterial;
+        #region applyactualtrigger
+        //[Header("Vive Authestic")]
+        //public Transform mTrigger;
 
-        [Header("Vive Setting")]
-        public GameObject controllerRight;
-        public GameObject controllerLeft;
+        //public void SetTriggerRotation(float triggerValue)
+        //{
+        //    float targetX = triggerValue * 25.0f;
+        //    mTrigger.transform.localEulerAngles = new Vector3(targetX, 0, 0);
+        //}
+        #endregion
+        //TODO (skn): Feel mTrigger automatically
 
         void Start()
         {
@@ -71,7 +76,6 @@ namespace LittleWarrior.Weapon
 
             _Anim = GetComponent<Animator>();
         }
-
 
         void Update()
         {
@@ -134,6 +138,11 @@ namespace LittleWarrior.Weapon
             flare.Play();
             PlayShootingSoundEffect();
 
+            if(OnFire != null)
+            {
+                OnFire(_BulletsLeft);
+            }
+
             _BulletsLeft--;
             _LastTimeFiredTimer = 0.0f;
         }
@@ -194,6 +203,9 @@ namespace LittleWarrior.Weapon
             _AudioSource.clip = reloadSoundEffect;
             _AudioSource.Play();
         }
+
+        public delegate void FireAction(int ammoCount);
+        public static event FireAction OnFire;
     }
 }
 

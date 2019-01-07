@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using LittleWarrior.Properties;
 
-namespace LittleWarrior.Managers
+namespace LittleWarrior.Slaves
 {
-    public class LW_DeadZone : MonoBehaviour
+    public class LW_ObjectReturn : MonoBehaviour
     {
-        private float _WaitTime = 2.9f;
+        private float _WaitTime = 3.0f;
 
         private LW_ViveInteraction _LastInteraction = null;
         private Coroutine _CountDown = null;
@@ -19,8 +19,6 @@ namespace LittleWarrior.Managers
         {
             _OriginalPosition = transform.position;
             _OriginalRotation = transform.rotation;
-
-
         }
 
         public void SetLastInteraction(LW_ViveInteraction newInteraction)

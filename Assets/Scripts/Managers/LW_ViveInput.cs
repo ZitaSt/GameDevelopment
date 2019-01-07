@@ -37,11 +37,13 @@ namespace LittleWarrior.Managers
             {
                 print("Trigger Down");
                 _CurrentWeapon.RightTriggerPressed();
+                _InteractableObject.PickUp();
             }
 
             if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
             {
                 print("Trigger Up");
+                _InteractableObject.Drop(device);
             }
 
             Vector2 triggerValue = device.GetAxis(EVRButtonId.k_EButton_SteamVR_Trigger);

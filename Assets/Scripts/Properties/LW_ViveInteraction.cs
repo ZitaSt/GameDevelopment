@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using LittleWarrior.Managers;
+using LittleWarrior.Slaves;
 
 namespace LittleWarrior.Properties
 {
@@ -72,7 +72,7 @@ namespace LittleWarrior.Properties
             _CurrentRigidBody.velocity = device.velocity;
             _CurrentRigidBody.angularVelocity = device.angularVelocity;
 
-            LW_DeadZone objectReturn = _CurrentRigidBody.gameObject.GetComponent<LW_DeadZone>();
+            LW_ObjectReturn objectReturn = _CurrentRigidBody.gameObject.GetComponent<LW_ObjectReturn>();
             objectReturn.SetLastInteraction(this);
 
             _AttachJoint.connectedBody = null;

@@ -36,14 +36,18 @@ namespace LittleWarrior.Managers
             if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
             {
                 print("Trigger Down");
+                if(_CurrentWeapon == null)
+                {
+                    _CurrentWeapon = GetComponentInChildren<LW_Weapon>();
+                }
                 _CurrentWeapon.RightTriggerPressed();
-                _InteractableObject.PickUp();
+                //_InteractableObject.PickUp();
             }
 
             if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
             {
                 print("Trigger Up");
-                _InteractableObject.Drop(device);
+                //_InteractableObject.Drop(device);
             }
 
             Vector2 triggerValue = device.GetAxis(EVRButtonId.k_EButton_SteamVR_Trigger);

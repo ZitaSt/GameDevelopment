@@ -7,16 +7,16 @@ public class LW_AmmoDisplay : MonoBehaviour
 {
     public GameObject ammoIndicator;
 
+    //TODO (skn): Find a way to detect the weapon automatically
+    public LW_Weapon _CurrentWeapon = null;
     private List<GameObject> _MainContainer = new List<GameObject>();
 
 
     private void Awake()
     {
         LW_Weapon.OnFire += UpdateDisplay;
-
-        //TODO (skn): Get a reference from current weapon and pass the
-        //            magazine size
-        _MainContainer = CreateContainer(4);
+        
+        _MainContainer = CreateContainer(_CurrentWeapon.bulletsPerMag);
     }
 
     private void OnDestroy()

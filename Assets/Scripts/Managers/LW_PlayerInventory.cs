@@ -14,7 +14,9 @@ namespace LittleWarrior.Managers
         void Start()
         {
             bullets = new Dictionary<string, int>();
-            bullets.Add("Handgun", 24);
+            bullets.Add("BrowingHiPower", 24);
+            bullets.Add("Glock17", 0);
+            bullets.Add("M1911", 0);
         }
 
         public int ConsumeBullets(string key, int amount)

@@ -172,7 +172,7 @@ namespace LittleWarrior.Weapon
                     {
                         _BulletsLeft += retrunedCode;
                         PlayReloadSoundEffect();
-                    }
+                                            }
                     break;
             }
             return;

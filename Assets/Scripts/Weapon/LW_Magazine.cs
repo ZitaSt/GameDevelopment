@@ -21,24 +21,24 @@ namespace LittleWarrior.Weapon
             _OtherMagazineRenderer = otherMagazine.GetComponent<MeshRenderer>();
         }
 
-        public override void OnPickUp(LW_ViveInteraction ni)
-        {
-            _OtherMagazineRenderer.enabled = true;
-            _ThisInteraction = ni;
-        }
+        //public override void OnPickUp(LW_ViveInteraction ni)
+        //{
+        //    _OtherMagazineRenderer.enabled = true;
+        //    _ThisInteraction = ni;
+        //}
 
-        public override void OnDrop(LW_ViveInteraction ni)
-        {
-            _OtherMagazineRenderer.enabled = false;
-            _ThisInteraction = null;
+        //public override void OnDrop(LW_ViveInteraction ni)
+        //{
+        //    _OtherMagazineRenderer.enabled = false;
+        //    _ThisInteraction = null;
 
-            if(_MeasureCheck != null)
-            {
-                StopCoroutine(_MeasureCheck);
+        //    if(_MeasureCheck != null)
+        //    {
+        //        StopCoroutine(_MeasureCheck);
 
-                transform.position = otherMagazine.transform.position;
-            }
-        }
+        //        transform.position = otherMagazine.transform.position;
+        //    }
+        //}
 
         private void OnTriggerEnter(Collider col)
         {
@@ -54,7 +54,7 @@ namespace LittleWarrior.Weapon
         {
             _OtherMagazineRenderer.enabled = false;
 
-            _ThisInteraction.Detach();
+            //_ThisInteraction.Detach();
 
             GetComponent<Collider>().enabled = false;
 
@@ -99,7 +99,7 @@ namespace LittleWarrior.Weapon
             rb.useGravity = true;
             rb.isKinematic = false;
 
-            _ThisInteraction.Attach();
+            //_ThisInteraction.Attach();
         }
 
     }

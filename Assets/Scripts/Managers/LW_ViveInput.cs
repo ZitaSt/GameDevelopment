@@ -67,6 +67,10 @@ namespace LittleWarrior.Managers
             if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
             {
                 print("Grip Down");
+                if(collidingObject)
+                {
+                    GrabObject();
+                }
             }
 
             if (device.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
@@ -93,6 +97,31 @@ namespace LittleWarrior.Managers
 
             Vector2 touchValue = device.GetAxis(EVRButtonId.k_EButton_SteamVR_Touchpad);
             #endregion
+        }
+
+        public GameObject collidingObject;
+        public GameObject objectInHand;
+
+        public void OnTriggerEnter(Collider col)
+        {
+            if(!col.GetComponent<Rigidbody>())
+            {
+                return;
+            }
+
+            collidingObject = col.gameObject;
+        }
+
+        public void OnTriggerExit(Collider col)
+        {
+            collidingObject = null;
+        }
+
+        private void GrabObject()
+        {
+            objectInHand = collidingObject;
+            objectInHand.transform.SetParent(this.transform);
+            objectInHand.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 }

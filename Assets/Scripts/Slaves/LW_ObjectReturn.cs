@@ -55,6 +55,8 @@ namespace LittleWarrior.Slaves
 
             transform.position = _OriginalPosition;
             transform.rotation = _OriginalRotation;
+            _CountDown = null;
+            _LastInteraction = null;
         }
     }
 }

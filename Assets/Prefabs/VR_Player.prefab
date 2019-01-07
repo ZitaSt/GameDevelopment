@@ -217,7 +217,6 @@ GameObject:
   - component: {fileID: 4615215530241166}
   - component: {fileID: 114348866453176908}
   - component: {fileID: 114125748338898662}
-  - component: {fileID: 114168162680819020}
   m_Layer: 9
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -458,14 +457,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1112851715067394}
-  m_LocalRotation: {x: 0, y: 0.9997015, z: -0, w: -0.024432093}
-  m_LocalPosition: {x: -1.73, y: 1.82, z: -0.57}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4234920888543622}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 182.8, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4584843681363548
 Transform:
   m_ObjectHideFlags: 1
@@ -1105,17 +1104,6 @@ MonoBehaviour:
   padPressed: 0
   padTouched: 0
   gripped: 0
---- !u!114 &114168162680819020
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1667749877098986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d98ca20e021af2340be26e59536566aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114168921727217360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1190,6 +1178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoIndicator: {fileID: 1602257802313776, guid: 99f775b117f5b00438864b4c86959b97,
     type: 2}
+  _CurrentWeapon: {fileID: 114416309858383690}
 --- !u!114 &114229058530981166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1351,6 +1340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98ca20e021af2340be26e59536566aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collidingObject: {fileID: 0}
+  objectInHand: {fileID: 0}
 --- !u!114 &114687585065045584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1429,7 +1420,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!138 &138580831310245896
 FixedJoint:

@@ -13,7 +13,6 @@ namespace LittleWarrior.Properties
         {
             _HealthProperty = GetComponentInParent<LW_Health>();
             _DamageFactor = 1.0f;
-            InvokeRepeating("TakeDummyDamage", 1.0f, 1.0f);
             _VFXApplier = this.GetComponentInParent<LW_VFX_FlashDamage>();
         }
         public override void TakeDamage(float amount)
@@ -21,11 +20,6 @@ namespace LittleWarrior.Properties
             this._HealthProperty.TakeDamage(amount * _DamageFactor);
             _VFXApplier.Flash(2);
 
-        }
-
-        private void TakeDummyDamage()
-        {
-            TakeDamage(25.0f);
         }
     }
 }

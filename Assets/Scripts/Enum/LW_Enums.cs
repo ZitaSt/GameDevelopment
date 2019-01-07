@@ -18,6 +18,7 @@
         MainMenu,
         PauseMenu,
         GameOver,
+        ExitApplication,
         ShopArea,
         CreditsMenu,
         Level001,

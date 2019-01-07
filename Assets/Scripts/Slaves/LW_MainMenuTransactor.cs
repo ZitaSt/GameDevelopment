@@ -7,7 +7,7 @@ using LittleWarrior.SceneLoader;
 
 namespace LittleWarrior.Slaves
 {
-    public class LW_EscapeCube : LW_SlavesManager
+    public class LW_MainMenuTransactor : LW_SlavesManager
     {
         LW_GameManager GM;
 
@@ -24,13 +24,13 @@ namespace LittleWarrior.Slaves
 
         private void HandleOnStateChange()
         {
-            GM.SetGameState(GameState.ExitApplication);
-            Invoke("RunFree", 2.0f);
+            GM.SetGameState(GameState.MainMenu);
+            Invoke("LoadLevel", 2.0f);
         }
 
-        private void RunFree()
+        private void LoadLevel()
         {
-            Application.Quit();
+            LW_SceneLoaderAsync.Instance.LoadScene("MainMenu");
         }
     }
 }

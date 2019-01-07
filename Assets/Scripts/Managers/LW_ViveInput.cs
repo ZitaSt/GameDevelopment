@@ -13,12 +13,12 @@ namespace LittleWarrior.Managers
 
         private SteamVR_TrackedObject _TrackedObject = null;
         private LW_Weapon _CurrentWeapon = null;
-        private LW_ViveInteraction _InteractableObject = null;
+        private LW_ViveInteraction _InteractableObject;
 
         private void Awake()
         {
             _TrackedObject = GetComponent<SteamVR_TrackedObject>();
-
+            _InteractableObject = GetComponent<LW_ViveInteraction>();
             _CurrentWeapon = GetComponentInChildren<LW_Weapon>();
         }
 
@@ -35,19 +35,18 @@ namespace LittleWarrior.Managers
 
             if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
             {
-                print("Trigger Down");
                 if(_CurrentWeapon == null)
                 {
                     _CurrentWeapon = GetComponentInChildren<LW_Weapon>();
                 }
                 _CurrentWeapon.RightTriggerPressed();
-                //_InteractableObject.PickUp();
+                
             }
 
             if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
             {
                 print("Trigger Up");
-                //_InteractableObject.Drop(device);
+                
             }
 
             Vector2 triggerValue = device.GetAxis(EVRButtonId.k_EButton_SteamVR_Trigger);
@@ -61,21 +60,18 @@ namespace LittleWarrior.Managers
             #region Grip
             if (device.GetPress(SteamVR_Controller.ButtonMask.Grip))
             {
-                print("Grip");
+                
             }
 
             if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
             {
-                print("Grip Down");
-                if(collidingObject)
-                {
-                    GrabObject();
-                }
+                _InteractableObject.RightGripPressed();               
             }
 
             if (device.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
             {
-                print("Grip Up");
+                _InteractableObject.RightGripReleased(device);
+
             }
             #endregion
 
@@ -104,24 +100,19 @@ namespace LittleWarrior.Managers
 
         public void OnTriggerEnter(Collider col)
         {
-            if(!col.GetComponent<Rigidbody>())
+            if(!col.GetComponent<Rigidbody>() ||
+               col.gameObject.layer != 11)
             {
                 return;
             }
 
             collidingObject = col.gameObject;
+            
         }
 
         public void OnTriggerExit(Collider col)
         {
             collidingObject = null;
-        }
-
-        private void GrabObject()
-        {
-            objectInHand = collidingObject;
-            objectInHand.transform.SetParent(this.transform);
-            objectInHand.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 }

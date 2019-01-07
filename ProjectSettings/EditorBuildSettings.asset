@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: 276a361b23a81b240bf1b3f185ebf187
-  - enabled: 0
-    path: Assets/main_scence.unity
-    guid: 44a14dbdf7d23df4db02afdaf033d97d
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: e516295aecea0e648922e356f3ab64fc
@@ -18,15 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Loading.unity
     guid: 70895b1d68bc3cd45955dbf1ba6ed9d1
   - enabled: 1
-    path: Assets/Scenes/CityMap.unity
-    guid: 9ca0b7cd7b87c804484ec198257f7f0a
-  - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 6bc06e438a9cb6d47b09e3ddc4ae46f2
   - enabled: 1
-    path: Assets/Scenes/FirstLevel.unity
-    guid: f7ecd9b4279cd7f439e1787c721bc726
-  - enabled: 1
-    path: Assets/Scenes/SecondLevel.unity
-    guid: 8f8efa43cf9168343967e3b76866e868
+    path: Assets/Scenes/Shack.unity
+    guid: 20e4d46d1c3690b488e586f1ac0736c1
   m_configObjects: {}

@@ -71,7 +71,7 @@ namespace LittleWarrior.Weapon
                 target.TakeDamage(_Damage);
                 Destroy(hpar, 0.4f);
             }
-            else if(target.CompareTag("EnemiesParent"))
+            else if(target != null && target.CompareTag("EnemiesParent"))
             {
                 return;
             }

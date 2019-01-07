@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using LittleWarrior.Slaves;
+using LittleWarrior.Managers;
 
 namespace LittleWarrior.Properties
 {
@@ -49,7 +50,7 @@ namespace LittleWarrior.Properties
             }
         }
 
-        public void PickUp()
+        public void RightGripPressed()
         {
             _CurrentRigidBody = GetNearestRigidbody();
 
@@ -58,16 +59,54 @@ namespace LittleWarrior.Properties
                 return;
             }
 
+            if(_CurrentRigidBody.gameObject.layer == 11)
+            {
+                PickUp();
+            }
+            else
+            {
+                _CurrentRigidBody.gameObject.GetComponent<LW_SlavesManager>().SetSlaveActive();
+
+                _CurrentRigidBody = null;
+            }
+        }
+
+        public void RightGripReleased(SteamVR_Controller.Device device)
+        {
+            if (!_CurrentRigidBody)
+            {
+                return;
+            }
+
+            if (_CurrentRigidBody.gameObject.layer == 11)
+            {
+                Drop(device);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        public void PickUp()
+        {
+            //_CurrentRigidBody = GetNearestRigidbody();
+
+            //if (!_CurrentRigidBody)
+            //{
+            //    return;
+            //}
+
             _CurrentRigidBody.transform.position = transform.position;
             _AttachJoint.connectedBody = _CurrentRigidBody;
         }
 
         public void Drop(SteamVR_Controller.Device device)
         {
-            if (!_CurrentRigidBody)
-            {
-                return;
-            }
+            //if (!_CurrentRigidBody)
+            //{
+            //    return;
+            //}
 
             _CurrentRigidBody.velocity = device.velocity;
             _CurrentRigidBody.angularVelocity = device.angularVelocity;

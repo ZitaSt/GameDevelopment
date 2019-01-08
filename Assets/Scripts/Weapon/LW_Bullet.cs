@@ -8,6 +8,8 @@ namespace LittleWarrior.Weapon
 {
     public class LW_Bullet : MonoBehaviour
     {
+        private List<Collider> _ContactColliders = new List<Collider>();
+
         public float Speed
         {
             get
@@ -61,9 +63,24 @@ namespace LittleWarrior.Weapon
         void OnCollisionEnter(Collision col)
         {
             var hit = col.gameObject;
-            var target = hit.GetComponent<LW_Target>();
-            if(target != null)
+            if(hit.layer == 10)
             {
+                _ContactColliders.Add(hit.GetComponent<Collider>());
+                foreach (Transform child in hit.transform)
+                {
+                    Collider cc = child.GetComponent<Collider>();
+                    if (cc)
+                    {
+                        _ContactColliders.Add(cc);
+                    }
+                }
+            }
+
+            var Col = GetNearestCollider();
+
+            if (Col != null)
+            {
+                var target = Col.GetComponent<LW_Target>();
                 GameObject hpar = Instantiate(hitParticle,
                                         this.transform.position,
                                         Quaternion.FromToRotation(Vector3.up, 
@@ -71,10 +88,15 @@ namespace LittleWarrior.Weapon
                 target.TakeDamage(_Damage);
                 Destroy(hpar, 0.4f);
             }
-            else if(target != null && target.CompareTag("EnemiesParent"))
-            {
-                return;
-            }
+            //else if(target != null && target.CompareTag("EnemiesParent"))
+            //{
+            //    return;
+            //}
+            //else if(target == null & hit.CompareTag("EnemiesParent"))
+            //{
+            //    Debug.Log("Nothing to do with this object!");
+            //    return;
+            //}
             else
             {
                 GameObject hpar = Instantiate(hitParticle,
@@ -95,8 +117,33 @@ namespace LittleWarrior.Weapon
 
                 Destroy(bimp, 10f);
                 //TODO (skn): Register particles to a proper manager
-            } 
+            }
             Destroy(gameObject);
+        }
+
+        private Collider GetNearestCollider()
+        {
+            Collider nc = null;
+
+            float minDistance = float.MaxValue;
+            float distance = 0.0f;
+
+            foreach (Collider c in _ContactColliders)
+            {
+                if(c.GetComponent<LW_Target>())
+                {
+                    Vector3 ccp = c.ClosestPoint(transform.position);
+                    distance = (ccp - transform.position).sqrMagnitude;
+
+                    if (distance < minDistance)
+                    {
+                        minDistance = distance;
+                        nc = c;
+                    }
+                }
+            }
+
+            return nc;
         }
     }
 }

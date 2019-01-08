@@ -75,6 +75,7 @@ namespace LittleWarrior.Weapon
             }
 
             _Anim = GetComponent<Animator>();
+            
         }
 
         void Update()
@@ -131,8 +132,11 @@ namespace LittleWarrior.Weapon
             }
             GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
             var bp = bullet.GetComponent<LW_Bullet>();
+            
             bp.Speed = bulletSpeed;
             bp.Damage = bulletDamage;
+
+            Debug.Log(bp.Damage);
 
             _Anim.CrossFadeInFixedTime("Shoot", 0.01f);
             flare.Play();

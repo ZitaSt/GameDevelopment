@@ -4,16 +4,19 @@ using UnityEngine;
 using Valve.VR;
 using LittleWarrior.Weapon;
 using LittleWarrior.Properties;
+using LittleWarrior.Enums;
 
 namespace LittleWarrior.Managers
 {
     public class LW_ViveInput : MonoBehaviour
     {
         public SteamVR_Controller.Device device;
+        public Controller controller;
 
         private SteamVR_TrackedObject _TrackedObject = null;
         private LW_Weapon _CurrentWeapon = null;
         private LW_ViveInteraction _InteractableObject;
+
 
         private void Awake()
         {
@@ -22,30 +25,34 @@ namespace LittleWarrior.Managers
             _CurrentWeapon = GetComponentInChildren<LW_Weapon>();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
             device = SteamVR_Controller.Input((int)_TrackedObject.index);
 
             #region Trigger
             if (device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
             {
-                print("Trigger");
+                
             }
 
             if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
             {
-                if(_CurrentWeapon == null)
+                if(controller == Controller.Right)
                 {
-                    _CurrentWeapon = GetComponentInChildren<LW_Weapon>();
+                    if (_CurrentWeapon == null)
+                    {
+                        _CurrentWeapon = GetComponentInChildren<LW_Weapon>();
+                    }
+                    _CurrentWeapon.RightTriggerPressed();
                 }
-                _CurrentWeapon.RightTriggerPressed();
-                
+                else if(controller == Controller.Left)
+                {
+                    return;
+                }
             }
 
             if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
             {
-                print("Trigger Up");
                 
             }
 
@@ -64,8 +71,15 @@ namespace LittleWarrior.Managers
             }
 
             if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
-            {
-                _InteractableObject.RightGripPressed();               
+            { 
+                if(controller == Controller.Right)
+                {
+                    _InteractableObject.RightGripPressed();
+                }
+                else if (controller == Controller.Left)
+                {
+                    return;
+                }    
             }
 
             if (device.GetPressUp(SteamVR_Controller.ButtonMask.Grip))

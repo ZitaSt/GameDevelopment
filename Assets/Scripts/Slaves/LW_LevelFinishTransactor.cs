@@ -8,7 +8,7 @@ using LittleWarrior.SceneLoader;
 namespace LittleWarrior.Slaves
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class LW_LevelTransactor : LW_SlavesManager
+    public class LW_LevelFinishTransactor : LW_SlavesManager
     {
         LW_GameManager GM;
 
@@ -25,14 +25,15 @@ namespace LittleWarrior.Slaves
 
         private void HandleOnStateChange()
         {
-            GM.SetGameState(GameState.Level001);
+            GM.SetGameState(GameState.MainMenu);
             Invoke("LoadLevel", 2.0f);
         }
 
         private void LoadLevel()
         {
-            LW_SceneLoaderAsync.Instance.LoadScene("Shack");
+            LW_SceneLoaderAsync.Instance.LoadScene("MainMenu");
         }
     }
 }
+
 

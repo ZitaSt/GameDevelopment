@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using LittleWarrior.Properties;
+using System;
 
 namespace LittleWarrior.Managers
 {
@@ -14,6 +15,8 @@ namespace LittleWarrior.Managers
         private List<GameObject> _LevelSpawnPoints;
         private List<Transform> _AliveEnemis;
         private int _LevelEnemyCounts = 0;
+        private int _CollectedDeaths = 0;
+        private GameObject _LevelFinish = null;
 
         void Awake()
         {
@@ -26,6 +29,8 @@ namespace LittleWarrior.Managers
 
         void Start()
         {
+            _LevelFinish = GameObject.Find("LevelFinish");
+            _LevelFinish.SetActive(false);
             InvokeRepeating("RemoveTheDeads", 2.0f, 5.0f);
         }
 
@@ -34,6 +39,7 @@ namespace LittleWarrior.Managers
             _AliveEnemis = new List<Transform>();
             _LevelSpawnPoints = new List<GameObject>();
             _LevelEnemyCounts = 0;
+            _CollectedDeaths = 0;
         }
 
         public void SPRegister(GameObject sp, int ec)
@@ -63,6 +69,17 @@ namespace LittleWarrior.Managers
             {
                 Destroy(_AliveEnemis[i].gameObject);
                 _AliveEnemis.RemoveAt(i);
+            }
+
+            CheckLevelCondtion();
+        }
+
+        private void CheckLevelCondtion()
+        {
+            if(_CollectedDeaths == _LevelEnemyCounts)
+            {
+
+                _LevelFinish.SetActive(true);
             }
         }
     }

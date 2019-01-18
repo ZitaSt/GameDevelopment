@@ -19,6 +19,7 @@ namespace LittleWarrior.AI
         [Header("Gameplay: Fighting Mechanism")]
         public float attackingDistance;
         public float attackProbability;
+        public float attackPerMinute;
         public float damagePoints;
         public float difficultyFactor;
 
@@ -47,6 +48,8 @@ namespace LittleWarrior.AI
         private bool _IsFollowing = false;
         private bool _Idle = false;
 
+        private float _DamagePerSecond;
+        private float _LastTimeAttacked = 0;
 
         void Awake()
         {
@@ -62,6 +65,7 @@ namespace LittleWarrior.AI
         {
             transform.rotation = new Quaternion(0, 0, 0, 0);
             _Nav.SetDestination(this.transform.position);
+            _DamagePerSecond = 60.0f / attackPerMinute;
         }
 
         void Update()
@@ -149,6 +153,8 @@ namespace LittleWarrior.AI
                 PlayDeathSoundEffet();
                 gameObject.SetActive(false);
             }
+
+            _LastTimeAttacked += Time.deltaTime;
         }
 
         private void OnTriggerStay(Collider col)
@@ -163,6 +169,7 @@ namespace LittleWarrior.AI
                     {
                         col.gameObject.GetComponent<LW_BoardsManager>().RemoveBoard();
                     }
+                    
                 }
                 else
                 {
@@ -213,6 +220,21 @@ namespace LittleWarrior.AI
             if (bcc)
             {
                 bcc.isTrigger = true;
+            }
+        }
+
+        private void Attack()
+        {
+            if (_LastTimeAttacked > _DamagePerSecond)
+            {
+                _IsFollowing = false;
+                _IsAttack = true;
+                _LastTimeAttacked = 0;
+            }
+            else
+            {
+                _IsFollowing = false;
+                _IsAttack = false;
             }
         }
     }

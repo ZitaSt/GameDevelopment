@@ -1102,10 +1102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewardDollar: 0
-  followingDistance: 2
+  followingDistance: 500
   stopppingDistance: 1.4
   attackingDistance: 1.4
   attackProbability: 20
+  attackPerMinute: 3
   damagePoints: 0
   difficultyFactor: 0
   attackSound: {fileID: 0}

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using LittleWarrior.Properties;
 using System;
+using LittleWarrior.AI;
+using LittleWarrior.Managers;
 
 namespace LittleWarrior.Managers
 {
@@ -17,21 +19,27 @@ namespace LittleWarrior.Managers
         private int _LevelEnemyCounts = 0;
         private int _CollectedDeaths = 0;
         private GameObject _LevelFinish = null;
+        private GameObject _Player;
 
         void Awake()
         {
             GameObject go = new GameObject("Alive Enemies");
             go.transform.SetParent(this.transform);
-            go.transform.tag = "EnemiesParent";
+            go.transform.tag = "AliveEnemies";
             _AliveEnemis = new List<Transform>();
             _LevelSpawnPoints = new List<GameObject>();
+            
         }
 
         void Start()
         {
             _LevelFinish = GameObject.Find("LevelFinish");
-            _LevelFinish.SetActive(false);
+            if(_LevelFinish)
+            {
+                _LevelFinish.SetActive(false);
+            }
             InvokeRepeating("RemoveTheDeads", 2.0f, 5.0f);
+            _Player = GameObject.FindGameObjectWithTag("Player");
         }
 
         public void Reset()
@@ -67,8 +75,13 @@ namespace LittleWarrior.Managers
 
             foreach(int i in tIndexes)
             {
+                _Player.GetComponent<LW_PlayerInventory>().StoreCurrency(
+                    LittleWarrior.Enums.Currency.Dollar,
+                    _AliveEnemis[i].gameObject.GetComponent<LW_AgentManager>().rewardDollar);
+
                 Destroy(_AliveEnemis[i].gameObject);
                 _AliveEnemis.RemoveAt(i);
+
             }
 
             CheckLevelCondtion();
@@ -78,7 +91,6 @@ namespace LittleWarrior.Managers
         {
             if(_CollectedDeaths == _LevelEnemyCounts)
             {
-
                 _LevelFinish.SetActive(true);
             }
         }

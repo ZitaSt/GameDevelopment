@@ -65,7 +65,7 @@ namespace LittleWarrior.SpawnPoint
                                         Quaternion.identity);
             spawnedZombies++;
             _gameManager.ERegister(go.transform);
-            GameObject pgo = GameObject.FindGameObjectWithTag("EnemiesParent");
+            GameObject pgo = GameObject.FindGameObjectWithTag("AliveEnemies");
             go.transform.SetParent(pgo.transform);
         }
     }

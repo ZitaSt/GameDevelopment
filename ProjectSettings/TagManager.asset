@@ -8,6 +8,7 @@ TagManager:
   - EnemiesParent
   - Interactable
   - Board
+  - AliveEnemies
   layers:
   - Default
   - TransparentFX

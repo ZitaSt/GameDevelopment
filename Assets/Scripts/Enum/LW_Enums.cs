@@ -30,4 +30,9 @@
         Left,
         Right
     }
+
+    public enum Currency
+    {
+        Dollar
+    }
 }

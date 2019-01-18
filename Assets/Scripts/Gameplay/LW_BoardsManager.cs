@@ -19,7 +19,7 @@ namespace LittleWarrior.Gameplay
                 }
             }
 
-            InvokeRepeating("RemoveBoard", 2.0f, 2.0f);
+            //InvokeRepeating("RemoveBoard", 2.0f, 2.0f);
         }
 
         public void AddBoard()
@@ -38,6 +38,11 @@ namespace LittleWarrior.Gameplay
             {
                 Debug.Log(">>>>> Trying to remove boards, but the list is empty");
             }
+        }
+
+        public int GetBoardsCount()
+        {
+            return _Boards.Count;
         }
     }
 }

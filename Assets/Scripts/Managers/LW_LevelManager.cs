@@ -91,7 +91,11 @@ namespace LittleWarrior.Managers
         {
             if(_CollectedDeaths == _LevelEnemyCounts)
             {
-                _LevelFinish.SetActive(true);
+                if (_LevelFinish)
+                {
+                    _LevelFinish.SetActive(true);
+                }
+                    
             }
         }
     }

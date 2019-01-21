@@ -34,6 +34,7 @@ namespace LittleWarrior.AI
         private NavMeshAgent _Nav;
         private Transform _Target;
         private Animator _Anim;
+        private AnimatorStateInfo _AnimInfo;
         private AudioSource _AudioSource;
 
         private float _LastPlayedMovementSoundEffect = 0.0f;
@@ -47,6 +48,7 @@ namespace LittleWarrior.AI
         private bool _IsAttack = false;
         private bool _IsFollowing = false;
         private bool _Idle = false;
+        private bool _IsAttacking = false;
 
         private float _DamagePerSecond;
         private float _LastTimeAttacked = 0;
@@ -100,6 +102,10 @@ namespace LittleWarrior.AI
                             _LastPlayedMovementSoundEffect = 0.0f;
                         }
                     }
+                    else
+                    {
+                        _IsFollowing = false;
+                    }
                 }
 
                 if(_IsAttack)
@@ -107,6 +113,13 @@ namespace LittleWarrior.AI
                     this.transform.LookAt(_Target.transform);
                     _Nav.SetDestination(this.transform.position);
                     PlayAttackingSoundEffect();
+                    _LastTimeAttacked += Time.deltaTime;
+                    if(_LastTimeAttacked > _DamagePerSecond)
+                    {
+                        _TargetHealth.TakeDamage(damagePoints);
+                        _LastTimeAttacked = 0;
+                    }
+                    
                 }
 
                 if(!_IsFollowing && !_IsAttack)
@@ -118,6 +131,7 @@ namespace LittleWarrior.AI
                         PlayIdleSoundEffect();
                         _LastPlayedIdleSoundEffect = 0.0f;
                     }
+                    _LastTimeAttacked = 0;
                 }
 
                 _Anim.SetBool("Attack", _IsAttack);
@@ -154,7 +168,14 @@ namespace LittleWarrior.AI
                 gameObject.SetActive(false);
             }
 
-            _LastTimeAttacked += Time.deltaTime;
+            //_LastTimeAttacked += Time.deltaTime;
+        }
+
+        void FixedUpdate()
+        {
+            _AnimInfo = _Anim.GetCurrentAnimatorStateInfo(0);
+
+            _IsAttacking = _AnimInfo.IsName("Attack");
         }
 
         private void OnTriggerStay(Collider col)
@@ -169,15 +190,24 @@ namespace LittleWarrior.AI
                     {
                         col.gameObject.GetComponent<LW_BoardsManager>().RemoveBoard();
                     }
-                    
                 }
                 else
                 {
                     _Nav.isStopped = false;
                     _IsBehindAWall = false;
                 }
-
             }
+            else
+            {
+                _Nav.isStopped = false;
+                _IsBehindAWall = false;
+            }
+        }
+
+        private void OnTriggerExit(Collider col)
+        {
+            _Nav.isStopped = false;
+            _IsBehindAWall = false;
         }
 
         private void PlayAttackingSoundEffect()

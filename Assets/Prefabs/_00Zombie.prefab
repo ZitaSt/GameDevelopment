@@ -1101,13 +1101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5980ff9e1585f045a7777e49b78b2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardDollar: 0
+  rewardDollar: 20
   followingDistance: 500
   stopppingDistance: 1.4
   attackingDistance: 1.4
   attackProbability: 20
-  attackPerMinute: 3
-  damagePoints: 0
+  attackPerMinute: 6
+  damagePoints: 10
   difficultyFactor: 0
   attackSound: {fileID: 0}
   deathSound: {fileID: 0}
@@ -1272,7 +1272,7 @@ NavMeshAgent:
   m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 100
-  m_StoppingDistance: 1.4
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1

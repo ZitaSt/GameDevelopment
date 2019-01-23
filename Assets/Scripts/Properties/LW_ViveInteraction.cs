@@ -63,12 +63,21 @@ namespace LittleWarrior.Properties
             {
                 PickUp();
             }
-            else
+            else if(_CurrentRigidBody.gameObject.layer == 12)
             {
                 _CurrentRigidBody.gameObject.GetComponent<LW_SlavesManager>().SetSlaveActive();
 
                 _CurrentRigidBody = null;
             }
+            else
+            {
+                return;
+            }
+        }
+
+        public void LeftGripPressed()
+        {
+            return;
         }
 
         public void RightGripReleased(SteamVR_Controller.Device device)
@@ -137,6 +146,14 @@ namespace LittleWarrior.Properties
             }
 
             return nrb;
+        }
+
+        public virtual void OnPickUp(LW_ViveInteraction newInteraction)
+        {
+        }
+
+        public virtual void OnDrop(LW_ViveInteraction newInteraction)
+        {
         }
     }
 }

@@ -24,4 +24,15 @@
         Level001,
         Level002
     }
+
+    public enum Controller
+    {
+        Left,
+        Right
+    }
+
+    public enum Currency
+    {
+        Dollar
+    }
 }

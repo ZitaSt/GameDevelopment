@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace LittleWarrior.Managers
 {
+    [RequireComponent(typeof(Rigidbody))]
     public abstract class LW_SlavesManager : MonoBehaviour
     {
         public abstract void SetSlaveActive();

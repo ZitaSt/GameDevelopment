@@ -7,6 +7,7 @@ using LittleWarrior.SceneLoader;
 
 namespace LittleWarrior.Slaves
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class LW_LevelTransactor : LW_SlavesManager
     {
         LW_GameManager GM;
@@ -14,7 +15,7 @@ namespace LittleWarrior.Slaves
         private void Awake()
         {
             GM = LW_GameManager.Instance;
-                    }
+        }
 
         public override void SetSlaveActive()
         {

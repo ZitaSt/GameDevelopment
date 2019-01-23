@@ -7,6 +7,7 @@ using LittleWarrior.SceneLoader;
 
 namespace LittleWarrior.Slaves
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class LW_MainMenuTransactor : LW_SlavesManager
     {
         LW_GameManager GM;

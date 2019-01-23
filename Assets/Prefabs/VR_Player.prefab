@@ -165,9 +165,10 @@ GameObject:
   - component: {fileID: 82834433341931804}
   - component: {fileID: 114416309858383690}
   - component: {fileID: 114792044644397674}
+  - component: {fileID: 54587012974463750}
   m_Layer: 9
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,6 +218,11 @@ GameObject:
   - component: {fileID: 4615215530241166}
   - component: {fileID: 114348866453176908}
   - component: {fileID: 114125748338898662}
+  - component: {fileID: 114920748293603620}
+  - component: {fileID: 114536345936888344}
+  - component: {fileID: 54867907074104044}
+  - component: {fileID: 135617328379239928}
+  - component: {fileID: 138690558310719032}
   m_Layer: 9
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -372,7 +378,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347492738764928}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -380,7 +386,7 @@ Transform:
   - {fileID: 4377000694101708}
   m_Father: {fileID: 4234920888543622}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
 --- !u!4 &4317999392350130
 Transform:
   m_ObjectHideFlags: 1
@@ -400,7 +406,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1462706684757094}
-  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
@@ -411,7 +417,7 @@ Transform:
   - {fileID: 4317999392350130}
   m_Father: {fileID: 4313014859263930}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4472409692270752
 Transform:
   m_ObjectHideFlags: 1
@@ -458,7 +464,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1112851715067394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4234920888543622}
@@ -838,6 +844,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1115742628218098}
   m_Mesh: {fileID: 4300004, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
+--- !u!54 &54587012974463750
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1462706684757094}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!54 &54836059510533460
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -846,6 +867,21 @@ Rigidbody:
   m_GameObject: {fileID: 1347492738764928}
   serializedVersion: 2
   m_Mass: 0.1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54867907074104044
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1667749877098986}
+  serializedVersion: 2
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
@@ -1287,6 +1323,20 @@ MonoBehaviour:
   - {x: -1.65, y: 0.01, z: -1.275}
   - {x: -1.65, y: 0.01, z: 1.275}
   - {x: 1.65, y: 0.01, z: 1.275}
+--- !u!114 &114536345936888344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1667749877098986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98ca20e021af2340be26e59536566aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: 0
+  collidingObject: {fileID: 0}
+  objectInHand: {fileID: 0}
 --- !u!114 &114613447283854604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1340,6 +1390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98ca20e021af2340be26e59536566aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: 1
   collidingObject: {fileID: 0}
   objectInHand: {fileID: 0}
 --- !u!114 &114687585065045584
@@ -1386,6 +1437,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Weapons: []
   _SwitchDelay: 0
+--- !u!114 &114920748293603620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1667749877098986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057e0cb83ddd2094c81c39e0f6846066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114978627858735936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1422,12 +1484,37 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135617328379239928
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1667749877098986}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!138 &138589532334798086
 FixedJoint:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347492738764928}
+  m_ConnectedBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!138 &138690558310719032
+FixedJoint:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1667749877098986}
   m_ConnectedBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity

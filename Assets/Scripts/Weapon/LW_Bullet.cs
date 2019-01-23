@@ -134,7 +134,7 @@ namespace LittleWarrior.Weapon
                 {
                     Vector3 ccp = c.ClosestPoint(transform.position);
                     distance = (ccp - transform.position).sqrMagnitude;
-
+      
                     if (distance < minDistance)
                     {
                         minDistance = distance;

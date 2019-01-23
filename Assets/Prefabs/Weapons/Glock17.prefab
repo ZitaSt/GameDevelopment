@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95663964709321310}
   - component: {fileID: 114460430099019974}
   - component: {fileID: 114594540106558588}
+  - component: {fileID: 114544904651601904}
   m_Layer: 0
   m_Name: Glock17
   m_TagString: Untagged
@@ -114,16 +115,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105694382562058}
-  m_LocalRotation: {x: 0, y: -0.014224047, z: 0, w: 0.99989885}
-  m_LocalPosition: {x: 0.1, y: -0.08, z: 0.27}
-  m_LocalScale: {x: 0.0074926903, y: 0.0074926903, z: 0.0074926903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 4346781479078532}
   - {fileID: 4781087276966112}
   - {fileID: 4076980748287904}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -1.63, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4781087276966112
 Transform:
   m_ObjectHideFlags: 1
@@ -350,6 +351,20 @@ MonoBehaviour:
   bulletsImpact: {fileID: 0}
   shootSoundEffect: {fileID: 0}
   reloadSoundEffect: {fileID: 0}
+--- !u!114 &114544904651601904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1105694382562058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758e27745842d5d46a467bf4a73da8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponIndex: 0
+  price: 0
+  openInLevel: 0
 --- !u!114 &114594540106558588
 MonoBehaviour:
   m_ObjectHideFlags: 1

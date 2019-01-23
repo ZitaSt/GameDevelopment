@@ -7,6 +7,8 @@ using LittleWarrior.AI;
 
 namespace LittleWarrior.Weapon
 {
+    [RequireComponent(typeof(LW_WeaponIndex))]
+    [RequireComponent(typeof(LW_WeaponSway))]
     public class LW_Weapon : MonoBehaviour
     {
         private Animator _Anim;
@@ -154,7 +156,7 @@ namespace LittleWarrior.Weapon
         public void Reload()
         {
             int requiredBullets = bulletsPerMag - _BulletsLeft;
-            int retrunedCode = MPI.ConsumeBullets(weaponType.ToString(),
+            int retrunedCode = MPI.ConsumeBullets(weaponType,
                                                   requiredBullets);
             switch(retrunedCode)
             {
@@ -186,7 +188,7 @@ namespace LittleWarrior.Weapon
         {
             if(_IsReloading)
             {
-                if(MPI.GetBulletsCount(weaponType.ToString()) <= 0)
+                if(MPI.GetBulletsCount(weaponType) <= 0)
                 {
                     Debug.Log("Out of " + weaponType.ToString() + ".");
                     return;

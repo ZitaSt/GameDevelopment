@@ -2,7 +2,9 @@
 {
     public enum WeaponTypes
     {
-        Handgun,
+        Handgun01,
+        Handgun02,
+        Handgun03,
         Rifle
     }
 
@@ -21,8 +23,7 @@
         ExitApplication,
         ShopArea,
         CreditsMenu,
-        Level001,
-        Level002
+        Level
     }
 
     public enum Controller

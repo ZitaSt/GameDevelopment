@@ -15,6 +15,12 @@ namespace LittleWarrior.Managers
         }
         public OnStateChangeHandler OnStateChange;
         public GameState gameState { get; private set; }
+        public int Level { get; private set; }
+
+        private void Awake()
+        {
+            Level = 0;
+        }
 
         public void SetGameState(GameState state)
         {
@@ -24,6 +30,11 @@ namespace LittleWarrior.Managers
         public void OnApplicationQuit()
         {
             LW_GameManager.Instance.OnDestroy();
+        }
+
+        public void RequestLevelChange()
+        {
+            this.Level++;
         }
     }
 }

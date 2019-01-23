@@ -10,25 +10,27 @@ namespace LittleWarrior.Managers
     public class LW_PlayerInventory : LW_Singleton<LW_PlayerInventory>
     {
         [SerializeField]
-        private Dictionary<string, int> _Bullets;
+        private Dictionary<WeaponTypes, int> _Bullets;
         private Dictionary<Currency, int> _Currencies;
+        public List<LW_Weapon> purchasedWeapons = new List<LW_Weapon>();
 
 
         private void Awake()
         {
-            _Bullets = new Dictionary<string, int>();
+            _Bullets = new Dictionary<WeaponTypes, int>();
             _Currencies = new Dictionary<Currency, int>();
         }
 
         void Start()
         {
-            _Bullets.Add("Handgun", 100);
-            _Bullets.Add("Glock17", 0);
-            _Bullets.Add("M1911", 0);
+            _Bullets.Add(WeaponTypes.Handgun01, 100);
+            _Bullets.Add(WeaponTypes.Handgun02, 0);
+            _Bullets.Add(WeaponTypes.Handgun03, 0);
+            _Bullets.Add(WeaponTypes.Rifle, 0);
             _Currencies.Add(Currency.Dollar, 0);
         }
 
-        public int ConsumeBullets(string key, int amount)
+        public int ConsumeBullets(WeaponTypes key, int amount)
         {
             if(_Bullets.ContainsKey(key) || amount > 0)
             {
@@ -59,7 +61,7 @@ namespace LittleWarrior.Managers
             }
         }
 
-        public int StoreBullets(string key, int amount)
+        public int StoreBullets(WeaponTypes key, int amount)
         {
             if(_Bullets.ContainsKey(key))
             {
@@ -73,7 +75,7 @@ namespace LittleWarrior.Managers
             }
         }
 
-        public int GetBulletsCount(string key)
+        public int GetBulletsCount(WeaponTypes key)
         {
             if (_Bullets.ContainsKey(key))
             {
@@ -133,6 +135,22 @@ namespace LittleWarrior.Managers
                 Debug.LogError("XXXX - Reading - Proper resource type" + key + " is not fount.");
                 return -1;
             }
+        }
+
+        public void PurchaseWeapon(LW_Weapon wp)
+        {
+            for(int i = 0; i < purchasedWeapons.Count; i++)
+            {
+                if(purchasedWeapons[i].GetComponent<LW_WeaponIndex>().weaponIndex == 
+                   wp.GetComponent<LW_WeaponIndex>().weaponIndex)
+                {
+                    StoreBullets(wp.GetComponent<LW_WeaponIndex>().weaponIndex,
+                                 wp.bulletsPerMag);
+                    return;
+                }
+            }
+            purchasedWeapons.Add(wp);
+            _Bullets.Add(wp.GetComponent<LW_WeaponIndex>().weaponIndex, wp.bulletsPerMag);
         }
     }
 }

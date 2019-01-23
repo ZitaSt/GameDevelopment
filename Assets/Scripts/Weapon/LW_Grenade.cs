@@ -1,16 +1,73 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LittleWarrior.Weapon;
+using LittleWarrior.Properties;
 
-public class LW_Grenade : MonoBehaviour {
+namespace LittleWarrior.Weapon
+{
+    public class LW_Grenade : MonoBehaviour
+    {
+        public float delayBeforeExplosion = 3.0f;
+        public float blastRadius = 3.0f;
+        public float explosionForce = 700.0f;
+        public float damagePoints = 10.0f;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        public GameObject explosionEffect;
+
+        private float _ExplosionCountdown;
+        private bool _HasExploded = false;
+
+        private void Start()
+        {
+            _ExplosionCountdown = delayBeforeExplosion;
+        }
+
+        private void Update()
+        {
+            _ExplosionCountdown -= Time.deltaTime;
+            if(_ExplosionCountdown <= 0 &&
+                !_HasExploded)
+            {
+                Explde();
+                _HasExploded = true;
+            }
+        }
+
+        private void Explde()
+        {
+            if(explosionEffect)
+            {
+                Instantiate(explosionEffect, transform.position,
+                            transform.rotation);
+            }
+            else
+            {
+                Debug.LogError("!!!!: No explosion effect is set!");
+            }
+
+
+            Collider[] col = Physics.OverlapSphere(transform.position, blastRadius);
+
+            foreach(Collider c in col)
+            {
+                Rigidbody rb = c.GetComponent<Rigidbody>();
+                if(rb)
+                {
+                    rb.AddExplosionForce(explosionForce, transform.position, blastRadius);
+                }
+
+                var hp = c.GetComponent<LW_Target>();
+                if(hp)
+                {
+                    Vector3 cpp = c.ClosestPoint(transform.position);
+                    float distance = (cpp - transform.position).sqrMagnitude;
+                    hp.TakeDamage((distance * damagePoints) / blastRadius);
+                }
+            }
+
+            //Destroy(gameObject);
+        }
+    }
 }
+

@@ -308,7 +308,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &192409462
 GameObject:
@@ -938,9 +938,20 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 99.82
       objectReference: {fileID: 0}
+    - target: {fileID: 114642603537886326, guid: 55bcebf0300be464cb5f7ef8d78bb36d,
+        type: 2}
+      propertyPath: m_Text
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55bcebf0300be464cb5f7ef8d78bb36d, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &469616859 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114642603537886326, guid: 55bcebf0300be464cb5f7ef8d78bb36d,
+    type: 2}
+  m_PrefabInternal: {fileID: 469616858}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &479243194
 Prefab:
   m_ObjectHideFlags: 0
@@ -2506,8 +2517,8 @@ GameObject:
   - component: {fileID: 1442888009}
   - component: {fileID: 1442888008}
   m_Layer: 0
-  m_Name: Quad
-  m_TagString: Untagged
+  m_Name: Shop
+  m_TagString: Shop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2527,6 +2538,7 @@ MonoBehaviour:
   - {fileID: 1105694382562058, guid: b9ab187a56377ee47b58992769a6e8e8, type: 2}
   - {fileID: 1105694382562058, guid: 6c98c8521185e0849abbcf6487e6f70d, type: 2}
   - {fileID: 1105694382562058, guid: efccac9dd7ece0141913662409967c8d, type: 2}
+  text: {fileID: 469616859}
 --- !u!64 &1442888009
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3341,7 +3353,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.542605, y: 0.12589729, z: 2.5035813}
-  m_Center: {x: -0.0063963532, y: 0.00436908, z: 0.959777}
+  m_Center: {x: 0.05, y: -0.6, z: 0.96}
 --- !u!54 &1804007058
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3352,8 +3364,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -3518,7 +3530,7 @@ Transform:
   m_Children:
   - {fileID: 1804007056}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1883377770
 GameObject:
@@ -3709,12 +3721,12 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c7e8c8d82257abc478d9ff33ab5e581d, type: 2}
+      objectReference: {fileID: 2100000, guid: 61d68991f741f2e4f865bea85744ff15, type: 2}
     - target: {fileID: 23000011975334006, guid: 9f4e5dd2165039f4a878d1c1260761df,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c7e8c8d82257abc478d9ff33ab5e581d, type: 2}
+      objectReference: {fileID: 2100000, guid: 4ebf89c76df5f0b46bcb765f2548d60d, type: 2}
     - target: {fileID: 4000010688086050, guid: 9f4e5dd2165039f4a878d1c1260761df, type: 2}
       propertyPath: m_LocalPosition.y
       value: -0.668

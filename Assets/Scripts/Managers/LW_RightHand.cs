@@ -51,9 +51,10 @@ namespace LittleWarrior.Managers
                 if(p.GetChild(i).GetComponent<SteamVR_RenderModel>())
                 {
                     p.GetChild(i).gameObject.SetActive(false);
-                    return;
+                    break;
                 }
             }
+            p.GetComponent<LW_ViveInput>().UpdateCurrentWeapon(_Weapons[_ActiveWeaponIndex]);
         }
 
         public void DisableWeapon()
@@ -65,6 +66,7 @@ namespace LittleWarrior.Managers
             _TempWeapon.GetComponent<LW_ObjectReturn>().SetLastInteraction(p.GetComponent<LW_ViveInteraction>());
             
         }
+
     }
 }
 

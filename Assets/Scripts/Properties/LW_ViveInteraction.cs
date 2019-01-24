@@ -4,6 +4,7 @@ using UnityEngine;
 using LittleWarrior.Slaves;
 using LittleWarrior.Managers;
 using LittleWarrior.Weapon;
+using System;
 
 namespace LittleWarrior.Properties
 {
@@ -14,6 +15,7 @@ namespace LittleWarrior.Properties
 
         private Rigidbody _CurrentRigidBody = null;
         private List<Rigidbody> _ContactRigidBodies = new List<Rigidbody>();
+
 
         void Awake()
         {
@@ -201,6 +203,14 @@ namespace LittleWarrior.Properties
 
         public virtual void OnDrop(LW_ViveInteraction newInteraction)
         {
+        }
+
+        public void ResetTheContactRigidBodies()
+        {
+            for(int i = 0; i < _ContactRigidBodies.Count; i++)
+            {
+                _ContactRigidBodies.RemoveAt(i);
+            }
         }
     }
 }

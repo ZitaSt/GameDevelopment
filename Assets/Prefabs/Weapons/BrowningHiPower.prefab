@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114279611444446560}
   - component: {fileID: 54987609946767708}
   - component: {fileID: 65257871114976464}
+  - component: {fileID: 114216458453397838}
   m_Layer: 14
   m_Name: BrowningHiPower
   m_TagString: Interactable
@@ -352,6 +353,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114216458453397838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1105694382562058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41c1c8e425834b4c955b5e0a5df0c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114279611444446560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -364,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponIndex: 0
-  price: 0
+  price: 500
   openInLevel: 0
 --- !u!114 &114460430099019974
 MonoBehaviour:

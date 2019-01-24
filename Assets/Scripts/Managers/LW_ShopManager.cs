@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using LittleWarrior.Weapon;
 using LittleWarrior.Managers;
+using UnityEngine.UI;
 
 namespace LittleWarrior.Managers
 {
+
     public class LW_ShopManager : MonoBehaviour
     {
         public List<GameObject> weaponsList = new List<GameObject>();
         private Transform[] _Containers;
         private LW_GameManager GM;
+        private List<GameObject> _ProvidedGoods = new List<GameObject>();
+        public Text text;
+        private LW_PlayerInventory PL;
 
         private void Awake()
         {
@@ -22,6 +27,8 @@ namespace LittleWarrior.Managers
             }
 
             GM = LW_GameManager.Instance;
+            PL = LW_PlayerInventory.Instance;
+            
         }
 
         private void Start()
@@ -38,9 +45,44 @@ namespace LittleWarrior.Managers
                 if (wi.openInLevel == GM.Level)
                 {
                     GameObject go = Instantiate(weaponsList[i], _Containers[j].transform);
+                    _ProvidedGoods.Add(go);
                     j++;
                 }
             }
+        }
+
+        private void Update()
+        {
+            foreach(GameObject go in _ProvidedGoods)
+            {
+                if(go.transform.parent != null &&
+                    go.transform.parent.name == "HoldRight")
+                {
+                    text.text = go.GetComponent<LW_WeaponIndex>().price.ToString();
+                }
+            }
+        }
+
+        public void Sell()
+        {
+            GameObject ww = null;
+            foreach (GameObject go in _ProvidedGoods)
+            {
+                if (go.transform.parent != null &&
+                    go.transform.parent.name == "HoldRight")
+                {
+                    ww = go;
+                }
+            }
+            if(ww != null)
+            {
+                LW_Weapon w = ww.GetComponent<LW_Weapon>();
+                LW_WeaponIndex wi = ww.GetComponent<LW_WeaponIndex>();
+                PL.ConsumeCurrency(Enums.Currency.Dollar, wi.price);
+                PL.PurchaseWeapon(w);
+            }
+            
+
         }
     }
 }

@@ -81,6 +81,7 @@ namespace LittleWarrior.Managers
 
                 Destroy(_AliveEnemis[i].gameObject);
                 _AliveEnemis.RemoveAt(i);
+                _CollectedDeaths++;
 
             }
 

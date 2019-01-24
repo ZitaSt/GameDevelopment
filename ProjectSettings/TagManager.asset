@@ -10,6 +10,7 @@ TagManager:
   - Board
   - AliveEnemies
   - ThrowingWeapon
+  - Shop
   layers:
   - Default
   - TransparentFX

@@ -14,11 +14,17 @@ namespace LittleWarrior.Slaves
 
         private Vector3 _OriginalPosition = Vector3.zero;
         private Quaternion _OriginalRotation = Quaternion.identity;
+        private Transform _Parent;
 
         void Awake()
         {
             _OriginalPosition = transform.position;
             _OriginalRotation = transform.rotation;
+
+            if(this.transform.parent)
+            {
+                _Parent = this.transform.parent;
+            }
         }
 
         public void SetLastInteraction(LW_ViveInteraction newInteraction)
@@ -55,6 +61,7 @@ namespace LittleWarrior.Slaves
 
             transform.position = _OriginalPosition;
             transform.rotation = _OriginalRotation;
+            this.transform.SetParent(_Parent);
             _CountDown = null;
             _LastInteraction = null;
         }

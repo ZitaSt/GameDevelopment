@@ -17,6 +17,12 @@ namespace LittleWarrior.Managers
         private LW_Weapon _CurrentWeapon = null;
         private LW_ViveInteraction _InteractableObject;
 
+        private int _TimePressed = 0;
+        private float _PressingThreshhold = 4.0f;
+        private int _TimesToPress = 3;
+        private bool _FirstTimePressed = false;
+
+        LW_GameManager GM;
 
         private void Awake()
         {
@@ -27,7 +33,8 @@ namespace LittleWarrior.Managers
         {
             _TrackedObject = GetComponent<SteamVR_TrackedObject>();
             _InteractableObject = GetComponent<LW_ViveInteraction>();
-            _CurrentWeapon = GetComponentInChildren<LW_Weapon>();
+            _CurrentWeapon = null;
+            GM = LW_GameManager.Instance;
         }
 
         private void Update()
@@ -46,11 +53,7 @@ namespace LittleWarrior.Managers
                 {
                     if (_CurrentWeapon == null)
                     {
-                        _CurrentWeapon = GetComponentInChildren<LW_Weapon>();
-                        if(!_CurrentWeapon)
-                        {
-                            return;
-                        }
+                        return;
                     }
                     _CurrentWeapon.RightTriggerPressed();
                 }
@@ -101,17 +104,42 @@ namespace LittleWarrior.Managers
             #region Touchpad
             if (device.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
             {
-                print("Touchpad");
+
             }
 
             if (device.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
             {
-                print("Touchpad Down");
+                if (_PressingThreshhold >= 0 && !_FirstTimePressed)
+                {
+                    _FirstTimePressed = true;
+                }
             }
 
             if (device.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
             {
-                print("Touchpad Up");
+                _TimePressed++;
+                if(_TimePressed == _TimesToPress && _PressingThreshhold > 0)
+                {
+                    _FirstTimePressed = false;
+                    _PressingThreshhold = 4.0f;
+                    _TimePressed = 0;
+                    if(GM.gameState == GameState.ShopArea)
+                    {
+                        GameObject go = GameObject.FindWithTag("Shop");
+                        go.GetComponent<LW_ShopManager>().Sell();
+                    }
+                }
+            }
+
+            if(_FirstTimePressed)
+            {
+                _PressingThreshhold -= Time.deltaTime;
+            }
+
+            if(_PressingThreshhold < 0)
+            {
+                _FirstTimePressed = false;
+                _PressingThreshhold = 4.0f;
             }
 
             Vector2 touchValue = device.GetAxis(EVRButtonId.k_EButton_SteamVR_Touchpad);
@@ -137,6 +165,11 @@ namespace LittleWarrior.Managers
         public void OnTriggerExit(Collider col)
         {
             collidingObject = null;
+        }
+
+        public void UpdateCurrentWeapon(GameObject w)
+        {
+            _CurrentWeapon = w.GetComponent<LW_Weapon>();
         }
     }
 }

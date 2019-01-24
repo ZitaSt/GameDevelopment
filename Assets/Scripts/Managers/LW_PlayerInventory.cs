@@ -30,9 +30,9 @@ namespace LittleWarrior.Managers
 
         void Start()
         {
-            _Bullets.Add(WeaponTypes.Handgun01, 100);
-            _Bullets.Add(WeaponTypes.Handgun02, 0);
-            _Bullets.Add(WeaponTypes.Handgun03, 0);
+            _Bullets.Add(WeaponTypes.Handgun01, 1000);
+            _Bullets.Add(WeaponTypes.Handgun02, 1000);
+            _Bullets.Add(WeaponTypes.Handgun03, 1000);
             _Bullets.Add(WeaponTypes.Rifle, 0);
             _Currencies.Add(Currency.Dollar, startingAmountDollar);
         }
@@ -157,7 +157,19 @@ namespace LittleWarrior.Managers
                 }
             }
             purchasedWeapons.Add(wp);
-            _Bullets.Add(wp.GetComponent<LW_WeaponIndex>().weaponIndex, wp.bulletsPerMag);
+            //_Bullets.Add(wp.GetComponent<LW_WeaponIndex>().weaponIndex, wp.bulletsPerMag);
+        }
+
+        public bool HastTheGun(WeaponTypes w)
+        {
+            for(int i = 0; i < purchasedWeapons.Count; i++)
+            {
+                if(purchasedWeapons[i].weaponType == w)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

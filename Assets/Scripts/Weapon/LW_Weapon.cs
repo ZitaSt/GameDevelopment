@@ -82,8 +82,6 @@ namespace LittleWarrior.Weapon
 
         void Update()
         {
-            
-
             if(_LastTimeFiredTimer < fireRate)
             {
                 _LastTimeFiredTimer += Time.deltaTime; 

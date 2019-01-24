@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4186537566433520}
   - component: {fileID: 33723461564410808}
   - component: {fileID: 23339707758792062}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4675094718607274}
   - component: {fileID: 33060324894196804}
   - component: {fileID: 23352367672492686}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: M67_Grenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4461733695213224}
   - component: {fileID: 33307673240515726}
   - component: {fileID: 23937034016582252}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,9 +73,10 @@ GameObject:
   - component: {fileID: 54120275197668358}
   - component: {fileID: 136809503661726292}
   - component: {fileID: 114934098702320826}
-  m_Layer: 0
+  - component: {fileID: 114243003264820662}
+  m_Layer: 11
   m_Name: Grenade
-  m_TagString: Untagged
+  m_TagString: ThrowingWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +128,7 @@ Transform:
   m_GameObject: {fileID: 1962602708855366}
   m_LocalRotation: {x: -0, y: -0, z: 0.2385711, w: 0.97112507}
   m_LocalPosition: {x: 0.048, y: 2.385, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.0375, y: 0.0375, z: 0.0375}
   m_Children:
   - {fileID: 4461733695213224}
   - {fileID: 4675094718607274}
@@ -276,6 +277,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114243003264820662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962602708855366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b16510e0a6b8bc4d9e0b6bc0bbb219d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwingForce: 5
 --- !u!114 &114934098702320826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,7 +304,8 @@ MonoBehaviour:
   blastRadius: 3
   explosionForce: 700
   damagePoints: 10
-  explosionEffect: {fileID: 0}
+  isThrowed: 0
+  explosionEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
 --- !u!136 &136809503661726292
 CapsuleCollider:
   m_ObjectHideFlags: 1

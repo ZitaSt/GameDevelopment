@@ -20,6 +20,11 @@ namespace LittleWarrior.Managers
 
         private void Awake()
         {
+            
+        }
+
+        private void Start()
+        {
             _TrackedObject = GetComponent<SteamVR_TrackedObject>();
             _InteractableObject = GetComponent<LW_ViveInteraction>();
             _CurrentWeapon = GetComponentInChildren<LW_Weapon>();
@@ -42,6 +47,10 @@ namespace LittleWarrior.Managers
                     if (_CurrentWeapon == null)
                     {
                         _CurrentWeapon = GetComponentInChildren<LW_Weapon>();
+                        if(!_CurrentWeapon)
+                        {
+                            return;
+                        }
                     }
                     _CurrentWeapon.RightTriggerPressed();
                 }
@@ -115,7 +124,8 @@ namespace LittleWarrior.Managers
         public void OnTriggerEnter(Collider col)
         {
             if(!col.GetComponent<Rigidbody>() ||
-               col.gameObject.layer != 11)
+               (col.gameObject.layer != 11 &&
+               col.gameObject.layer != 14))
             {
                 return;
             }

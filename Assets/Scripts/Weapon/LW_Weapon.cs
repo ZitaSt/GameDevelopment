@@ -8,7 +8,7 @@ using LittleWarrior.AI;
 namespace LittleWarrior.Weapon
 {
     [RequireComponent(typeof(LW_WeaponIndex))]
-    [RequireComponent(typeof(LW_WeaponSway))]
+    
     public class LW_Weapon : MonoBehaviour
     {
         private Animator _Anim;
@@ -82,15 +82,7 @@ namespace LittleWarrior.Weapon
 
         void Update()
         {
-            //}
-            //else if(Input.GetKeyDown(KeyCode.R))
-            //{
-            //    if (_BulletsLeft < bulletsPerMag)
-            //    {
-            //        DoReload();
-            //    }
-                
-            //}
+            
 
             if(_LastTimeFiredTimer < fireRate)
             {

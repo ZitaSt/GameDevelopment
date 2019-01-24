@@ -9,6 +9,7 @@ TagManager:
   - Interactable
   - Board
   - AliveEnemies
+  - ThrowingWeapon
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Pickupable
   - Slave
   - DrawAlways
-  - 
+  - Weapon
   - 
   - 
   - 

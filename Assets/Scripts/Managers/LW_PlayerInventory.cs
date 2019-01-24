@@ -14,6 +14,8 @@ namespace LittleWarrior.Managers
         private Dictionary<Currency, int> _Currencies;
         public List<LW_Weapon> purchasedWeapons = new List<LW_Weapon>();
 
+        public int startingAmountDollar = 500;
+
 
         private void Awake()
         {
@@ -27,7 +29,7 @@ namespace LittleWarrior.Managers
             _Bullets.Add(WeaponTypes.Handgun02, 0);
             _Bullets.Add(WeaponTypes.Handgun03, 0);
             _Bullets.Add(WeaponTypes.Rifle, 0);
-            _Currencies.Add(Currency.Dollar, 0);
+            _Currencies.Add(Currency.Dollar, startingAmountDollar);
         }
 
         public int ConsumeBullets(WeaponTypes key, int amount)

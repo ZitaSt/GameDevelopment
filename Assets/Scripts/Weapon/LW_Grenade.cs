@@ -12,6 +12,7 @@ namespace LittleWarrior.Weapon
         public float blastRadius = 3.0f;
         public float explosionForce = 700.0f;
         public float damagePoints = 10.0f;
+        public bool isThrowed = false;
 
         public GameObject explosionEffect;
 
@@ -25,12 +26,15 @@ namespace LittleWarrior.Weapon
 
         private void Update()
         {
-            _ExplosionCountdown -= Time.deltaTime;
-            if(_ExplosionCountdown <= 0 &&
-                !_HasExploded)
+            if(isThrowed)
             {
-                Explde();
-                _HasExploded = true;
+                _ExplosionCountdown -= Time.deltaTime;
+                if(_ExplosionCountdown <= 0 &&
+                    !_HasExploded)
+                {
+                    Explde();
+                    _HasExploded = true;
+                }
             }
         }
 
@@ -66,7 +70,7 @@ namespace LittleWarrior.Weapon
                 }
             }
 
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

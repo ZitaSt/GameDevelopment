@@ -7,12 +7,13 @@ namespace LittleWarrior.Weapon
 {
     public class LW_GrenadeThrower : MonoBehaviour
     {
-        public float throwingForce = 40.0f;
+        public float throwingForce = 10.0f;
 
-        private void ThrowTheGrenade()
+        public void ThrowTheGrenade(Vector3 fv)
         {
             Rigidbody rb = GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * throwingForce, ForceMode.VelocityChange);
+            rb.AddForce(fv * throwingForce, ForceMode.VelocityChange);
+            this.GetComponent<LW_Grenade>().isThrowed = true;
         }
     }
 }

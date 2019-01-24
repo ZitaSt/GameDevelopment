@@ -105,6 +105,7 @@ namespace LittleWarrior.Properties
             }
             else
             {
+                _CurrentRigidBody = null;
                 return;
             }
         }
@@ -129,8 +130,20 @@ namespace LittleWarrior.Properties
             _CurrentRigidBody.transform.SetParent(holdingObjectPosition.transform);
             _AttachJoint.connectedBody = _CurrentRigidBody;
             _CurrentRigidBody.transform.forward = holdingObjectPosition.transform.forward;
-            _CurrentRigidBody.GetComponent<BoxCollider>().enabled = false;
+            //_CurrentRigidBody.GetComponent<BoxCollider>().enabled = false;
             holdingObjectPosition.GetComponent<LW_RightHand>().EnableWeapon(_CurrentRigidBody.gameObject);
+            for (int i = 0; i < _ContactRigidBodies.Count; i++)
+            {
+                if (_CurrentRigidBody.transform.GetInstanceID() ==
+                    _ContactRigidBodies[i].transform.GetInstanceID())
+                {
+                    _ContactRigidBodies.RemoveAt(i);
+                }
+            }
+
+            _AttachJoint.connectedBody = null;
+            _CurrentRigidBody = null;
+            
         }
 
         public void Drop(SteamVR_Controller.Device device)

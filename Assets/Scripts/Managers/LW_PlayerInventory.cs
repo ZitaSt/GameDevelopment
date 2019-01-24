@@ -16,6 +16,11 @@ namespace LittleWarrior.Managers
 
         public int startingAmountDollar = 500;
 
+        protected LW_PlayerInventory()
+        {
+
+        }
+
 
         private void Awake()
         {

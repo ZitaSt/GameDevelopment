@@ -23,11 +23,12 @@ GameObject:
   - component: {fileID: 23037597121547350}
   - component: {fileID: 95663964709321310}
   - component: {fileID: 114460430099019974}
-  - component: {fileID: 114594540106558588}
   - component: {fileID: 114461285642328408}
-  m_Layer: 0
+  - component: {fileID: 54660604514270874}
+  - component: {fileID: 65025007096461794}
+  m_Layer: 14
   m_Name: M1911
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +43,7 @@ GameObject:
   - component: {fileID: 4781087276966112}
   - component: {fileID: 33007962845322574}
   - component: {fileID: 23345845297995600}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +60,7 @@ GameObject:
   - component: {fileID: 4346781479078532}
   - component: {fileID: 33566198894249456}
   - component: {fileID: 23722961392298960}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Handgun_Shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +77,7 @@ GameObject:
   - component: {fileID: 4076980748287904}
   - component: {fileID: 33647601779514532}
   - component: {fileID: 23963018797097666}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Slide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,6 +307,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985642035706114}
   m_Mesh: {fileID: 4300002, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
+--- !u!54 &54660604514270874
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1105694382562058}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65025007096461794
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1105694382562058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.82, y: 14.22995, z: 24.015709}
+  m_Center: {x: 0, y: -6.1330853, z: -2.3756547}
 --- !u!95 &95663964709321310
 Animator:
   serializedVersion: 3
@@ -335,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6adff83013e411649bc3910f4d467d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 0
+  weaponType: 2
   shootingMode: 0
   bulletPrefab: {fileID: 1251004281747358, guid: 84fa1b5aa8b576e4ab3ed1b32817806e,
     type: 2}
@@ -362,20 +390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 758e27745842d5d46a467bf4a73da8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponIndex: 0
+  weaponIndex: 2
   price: 0
   openInLevel: 0
---- !u!114 &114594540106558588
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1105694382562058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb210b2cedda994fba4799fe2f9a6d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swayAmount: 0.02
-  swaysmoothnes: 0.6
-  swayRange: 6

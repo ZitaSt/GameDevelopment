@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using LittleWarrior.Weapon;
-
+using LittleWarrior.Slaves;
+using LittleWarrior.Properties;
 
 namespace LittleWarrior.Managers
 {
@@ -10,6 +11,8 @@ namespace LittleWarrior.Managers
     {
         private List<GameObject> _Weapons = new List<GameObject>();
         private GameObject _TempWeapon = null;
+        private bool _HoldsWeapon = false;
+        private int _ActiveWeaponIndex = 0;
 
         private void Start()
         {
@@ -30,9 +33,15 @@ namespace LittleWarrior.Managers
                 if (_Weapons[i].GetComponent<LW_WeaponIndex>().weaponIndex == 
                     vi.GetComponent<LW_WeaponIndex>().weaponIndex)
                 {
+                    if(_HoldsWeapon)
+                    {
+                        DisableWeapon();
+                    }
                     _Weapons[i].gameObject.SetActive(true);
+                    _ActiveWeaponIndex = i;
                     _TempWeapon = vi;
                     vi.SetActive(false);
+                    _HoldsWeapon = true;
                 }
             }
 
@@ -47,15 +56,14 @@ namespace LittleWarrior.Managers
             }
         }
 
-        public void DisableWeapon(LW_WeaponIndex vi)
+        public void DisableWeapon()
         {
-            for (int i = 0; i < _Weapons.Count; i++)
-            {
-                if (_Weapons[i].GetComponent<LW_WeaponIndex>().weaponIndex == vi.weaponIndex)
-                {
-                    _Weapons[i].gameObject.SetActive(false);
-                }
-            }
+            _Weapons[_ActiveWeaponIndex].gameObject.SetActive(false);
+            _TempWeapon.transform.parent = null;
+            _TempWeapon.SetActive(true);
+            Transform p = this.transform.parent;
+            _TempWeapon.GetComponent<LW_ObjectReturn>().SetLastInteraction(p.GetComponent<LW_ViveInteraction>());
+            
         }
     }
 }

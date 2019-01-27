@@ -1109,10 +1109,11 @@ MonoBehaviour:
   attackPerMinute: 6
   damagePoints: 10
   difficultyFactor: 0
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 05e400aefe7524dbc9766d8ccbf1b0e4, type: 3}
   deathSound: {fileID: 0}
   idleSound: {fileID: 0}
   MovementSound: {fileID: 0}
+  _AudioSource: {fileID: 82965417557988316}
 --- !u!114 &114159220597283078
 MonoBehaviour:
   m_ObjectHideFlags: 1

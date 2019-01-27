@@ -112,7 +112,6 @@ namespace LittleWarrior.AI
                 {
                     this.transform.LookAt(_Target.transform);
                     _Nav.SetDestination(this.transform.position);
-                    PlayAttackingSoundEffect();
                     _LastTimeAttacked += Time.deltaTime;
                     if(_LastTimeAttacked > _DamagePerSecond)
                     {
@@ -153,7 +152,6 @@ namespace LittleWarrior.AI
             {
                 _IsAttack = true;
                 _Nav.SetDestination(this.transform.position);
-                PlayAttackingSoundEffect();
                 _Anim.SetBool("Attack", _IsAttack);
                 _Anim.SetBool("Walk", _IsFollowing);
                 _Anim.SetBool("Idle", _Idle);
@@ -210,10 +208,9 @@ namespace LittleWarrior.AI
             _IsBehindAWall = false;
         }
 
-        private void PlayAttackingSoundEffect()
+        void PlayAttackingSoundEffect()
         {
-            _AudioSource.clip = attackSound;
-            _AudioSource.Play();
+            _AudioSource.PlayOneShot(attackSound);
         }
 
         private void PlayDeathSoundEffet()

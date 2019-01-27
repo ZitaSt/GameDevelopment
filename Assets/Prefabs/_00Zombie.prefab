@@ -1110,10 +1110,9 @@ MonoBehaviour:
   damagePoints: 10
   difficultyFactor: 0
   attackSound: {fileID: 8300000, guid: 05e400aefe7524dbc9766d8ccbf1b0e4, type: 3}
-  deathSound: {fileID: 0}
-  idleSound: {fileID: 0}
-  MovementSound: {fileID: 0}
-  _AudioSource: {fileID: 82965417557988316}
+  deathSound: {fileID: 8300000, guid: 4e234d15ff4594d7894c5fe9c7d2aa63, type: 3}
+  idleSound: {fileID: 8300000, guid: d8ba73c4be06b479a92c12b9e9aedaf7, type: 3}
+  MovementSound: {fileID: 8300000, guid: db059ea141aa74e3e91f9f932b13f1a2, type: 3}
 --- !u!114 &114159220597283078
 MonoBehaviour:
   m_ObjectHideFlags: 1

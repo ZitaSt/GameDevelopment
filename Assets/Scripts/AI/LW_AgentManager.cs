@@ -40,7 +40,7 @@ namespace LittleWarrior.AI
         private float _LastPlayedMovementSoundEffect = 0.0f;
         private float _LastPlayedIdleSoundEffect = 0.0f;
 
-        private float _MovementSoundEffectInterval = 2.0f;
+        private float _MovementSoundEffectInterval = 4.0f;
         private float _IdleSoundEffectInterval = 3.0f;
         private float _Distance;
 

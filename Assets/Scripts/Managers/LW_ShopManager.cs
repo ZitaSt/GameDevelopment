@@ -58,7 +58,7 @@ namespace LittleWarrior.Managers
                 if(go.transform.parent != null &&
                     go.transform.parent.name == "HoldRight")
                 {
-                    text.text = go.GetComponent<LW_WeaponIndex>().price.ToString();
+                    text.text = "Price: " + go.GetComponent<LW_WeaponIndex>().price.ToString();
                 }
             }
         }

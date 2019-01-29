@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 136809503661726292}
   - component: {fileID: 114934098702320826}
   - component: {fileID: 114243003264820662}
+  - component: {fileID: 114857973433329500}
   m_Layer: 11
   m_Name: Grenade
   m_TagString: ThrowingWeapon
@@ -289,6 +290,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwingForce: 5
+--- !u!114 &114857973433329500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962602708855366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758e27745842d5d46a467bf4a73da8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponIndex: 4
+  price: 1000
+  openInLevel: 0
 --- !u!114 &114934098702320826
 MonoBehaviour:
   m_ObjectHideFlags: 1

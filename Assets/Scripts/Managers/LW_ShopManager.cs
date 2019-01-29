@@ -16,6 +16,8 @@ namespace LittleWarrior.Managers
         private List<GameObject> _ProvidedGoods = new List<GameObject>();
         public Text text;
         private LW_PlayerInventory PL;
+        private GameObject _G;
+        private int _GI;
 
         private void Awake()
         {
@@ -59,6 +61,12 @@ namespace LittleWarrior.Managers
                     go.transform.parent.name == "HoldRight")
                 {
                     text.text = "Price: " + go.GetComponent<LW_WeaponIndex>().price.ToString();
+                    if(go.transform.tag == "ThrowingWeapon")
+                    {
+                        _G = go;
+                        _GI = _ProvidedGoods.IndexOf(go);
+                        InvokeRepeating("GenerateGrenade", 0.0f, 3.0f);
+                    }
                 }
             }
         }
@@ -81,8 +89,30 @@ namespace LittleWarrior.Managers
                 PL.ConsumeCurrency(Enums.Currency.Dollar, wi.price);
                 PL.PurchaseWeapon(w);
             }
-            
+        }
 
+        private void GenerateGrenade()
+        {
+            if(_G == null)
+            {
+                _ProvidedGoods.RemoveAt(_GI);
+                for(int i = 0; i < _Containers.Length; i++)
+                {
+                    if(_Containers[i].childCount == 0)
+                    {
+                        for(int j = 0; j < weaponsList.Count; j++)
+                        {
+                            if(weaponsList[j].tag == "ThrowingWeapon")
+                            {
+                                GameObject go = Instantiate(weaponsList[j], _Containers[i].transform);
+                                _ProvidedGoods.Add(go);
+                                CancelInvoke("GenerateGrenade");
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

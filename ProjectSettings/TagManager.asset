@@ -11,6 +11,9 @@ TagManager:
   - AliveEnemies
   - ThrowingWeapon
   - Shop
+  - Head
+  - Body
+  - POS
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,8 @@
         Handgun01,
         Handgun02,
         Handgun03,
-        Rifle
+        Rifle,
+        Grenade
     }
 
     public enum ShootingMode

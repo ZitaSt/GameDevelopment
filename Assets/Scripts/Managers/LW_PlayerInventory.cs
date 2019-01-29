@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LittleWarrior.Weapon;
 using LittleWarrior.Enums;
+using LittleWarrior.Properties;
 
 
 namespace LittleWarrior.Managers
@@ -139,7 +140,7 @@ namespace LittleWarrior.Managers
             }
             else
             {
-                Debug.LogError("XXXX - Reading - Proper resource type" + key + " is not fount.");
+                Debug.LogError("XXXX - Reading - Proper resource type" + key + " is not found.");
                 return -1;
             }
         }
@@ -157,6 +158,8 @@ namespace LittleWarrior.Managers
                 }
             }
             purchasedWeapons.Add(wp);
+            LW_POS pos = GameObject.FindGameObjectWithTag("POS").GetComponent<LW_POS>();
+            pos.UpdateBalance();
             //_Bullets.Add(wp.GetComponent<LW_WeaponIndex>().weaponIndex, wp.bulletsPerMag);
         }
 

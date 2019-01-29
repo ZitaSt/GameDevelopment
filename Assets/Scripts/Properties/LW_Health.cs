@@ -22,6 +22,11 @@ namespace LittleWarrior.Properties
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
+                if (gameObject.tag == "Player")
+                {
+                    // Player is dead, so he goes back to main menu
+                    Application.LoadLevel("MainMenu");
+                }
             }
         }
     }

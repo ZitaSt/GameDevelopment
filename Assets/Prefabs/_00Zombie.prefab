@@ -1107,7 +1107,7 @@ MonoBehaviour:
   attackingDistance: 1.4
   attackProbability: 20
   attackPerMinute: 6
-  damagePoints: 10
+  damagePoints: 20
   difficultyFactor: 0
   attackSound: {fileID: 8300000, guid: 05e400aefe7524dbc9766d8ccbf1b0e4, type: 3}
   deathSound: {fileID: 8300000, guid: 4e234d15ff4594d7894c5fe9c7d2aa63, type: 3}

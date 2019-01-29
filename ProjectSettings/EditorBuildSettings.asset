@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shack.unity
     guid: 20e4d46d1c3690b488e586f1ac0736c1
+  - enabled: 1
+    path: Assets/Scenes/Shack_hard_mode.unity
+    guid: a145505770c6b1f4a91520d1141126ba
   m_configObjects: {}

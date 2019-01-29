@@ -16,8 +16,18 @@ namespace LittleWarrior.Weapon
 
         public GameObject explosionEffect;
 
+        public AudioClip explosionSound;
+
         private float _ExplosionCountdown;
         private bool _HasExploded = false;
+
+        private AudioSource _AudioSource;
+
+
+        void Awake()
+        {
+            _AudioSource = this.GetComponent<AudioSource>();
+        }
 
         private void Start()
         {
@@ -44,6 +54,8 @@ namespace LittleWarrior.Weapon
             {
                 Instantiate(explosionEffect, transform.position,
                             transform.rotation);
+                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+                //PlayExplosionSoundEffect();
             }
             else
             {
@@ -72,6 +84,13 @@ namespace LittleWarrior.Weapon
 
             Destroy(gameObject);
         }
+
+        /*private void PlayExplosionSoundEffect()
+        {
+            _AudioSource.clip = explosionSound;
+            _AudioSource.Play();
+        }*/
+
     }
 }
 

@@ -4563,7 +4563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombieEnemies:
   - {fileID: 1515125877583100, guid: 1e42c69dfed3d5c4dbf54485501b3271, type: 2}
-  zombiesInSpawnPoint: 5
+  zombiesInSpawnPoint: 10
   intervalBetweenSpawns: 3
   spawnPoints:
   - {fileID: 442725362}

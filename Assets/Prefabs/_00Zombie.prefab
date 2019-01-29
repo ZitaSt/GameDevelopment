@@ -1106,7 +1106,7 @@ MonoBehaviour:
   stopppingDistance: 1.4
   attackingDistance: 1.4
   attackProbability: 20
-  attackPerMinute: 6
+  attackPerMinute: 10
   damagePoints: 20
   difficultyFactor: 0
   attackSound: {fileID: 8300000, guid: 05e400aefe7524dbc9766d8ccbf1b0e4, type: 3}

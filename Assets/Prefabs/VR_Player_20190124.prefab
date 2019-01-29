@@ -620,7 +620,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1868111436884970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.045, z: 0}
+  m_LocalPosition: {x: 0, y: 0.045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4306927846039660}
@@ -1626,16 +1626,16 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1251004281747358, guid: 84fa1b5aa8b576e4ab3ed1b32817806e,
     type: 2}
   shootingRange: 500
-  bulletsPerMag: 12
+  bulletsPerMag: 1000
   bulletSpeed: 20
   fireRate: 0.4
   shootPoint: {fileID: 4261668712235056}
   spreadFactor: 0
-  bulletDamage: 20
+  bulletDamage: 35
   flare: {fileID: 198254325247881938}
   bulletsParticle: {fileID: 0}
   bulletsImpact: {fileID: 0}
-  shootSoundEffect: {fileID: 0}
+  shootSoundEffect: {fileID: 8300000, guid: 2203773368e4340d98c114f55c2dd7fd, type: 3}
   reloadSoundEffect: {fileID: 0}
 --- !u!114 &114119805299734042
 MonoBehaviour:
@@ -1671,16 +1671,16 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1251004281747358, guid: 84fa1b5aa8b576e4ab3ed1b32817806e,
     type: 2}
   shootingRange: 500
-  bulletsPerMag: 12
+  bulletsPerMag: 1000
   bulletSpeed: 20
   fireRate: 0.5
   shootPoint: {fileID: 4925253439072208}
   spreadFactor: 0
-  bulletDamage: 10
+  bulletDamage: 20
   flare: {fileID: 198024173601882742}
   bulletsParticle: {fileID: 0}
   bulletsImpact: {fileID: 0}
-  shootSoundEffect: {fileID: 0}
+  shootSoundEffect: {fileID: 8300000, guid: 2203773368e4340d98c114f55c2dd7fd, type: 3}
   reloadSoundEffect: {fileID: 0}
 --- !u!114 &114231682674844048
 MonoBehaviour:

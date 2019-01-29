@@ -25,7 +25,7 @@ namespace LittleWarrior.Slaves
 
         private void HandleOnStateChange()
         {
-            GM.SetGameState(GameState.ExitApplication);
+            GM.SetGameState(GameState.ExitApplication, false);
             Invoke("RunFree", 2.0f);
         }
 

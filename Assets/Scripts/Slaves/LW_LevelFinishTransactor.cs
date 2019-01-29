@@ -25,7 +25,7 @@ namespace LittleWarrior.Slaves
 
         private void HandleOnStateChange()
         {
-            GM.SetGameState(GameState.MainMenu);
+            GM.SetGameState(GameState.MainMenu, true);
             Invoke("LoadLevel", 2.0f);
         }
 

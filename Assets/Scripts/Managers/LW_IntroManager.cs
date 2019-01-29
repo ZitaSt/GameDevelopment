@@ -24,7 +24,7 @@ namespace LittleWarrior.Managers
 
         private void HandleOnStateChange()
         {
-            GM.SetGameState(GameState.MainMenu);
+            GM.SetGameState(GameState.MainMenu, false);
             Invoke("LoadLevel", 3.0f);
         }
 

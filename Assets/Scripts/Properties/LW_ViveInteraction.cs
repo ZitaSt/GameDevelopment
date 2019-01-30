@@ -29,7 +29,10 @@ namespace LittleWarrior.Properties
             {
                 return;
             }
-
+            if(collider.transform.parent == holdingObjectPosition)
+            {
+                return;
+            }
             _ContactRigidBodies.Add(collider.gameObject.GetComponent<Rigidbody>());
         }
 
@@ -103,7 +106,7 @@ namespace LittleWarrior.Properties
             }
             else if(_CurrentRigidBody.gameObject.layer == 14)
             {
-                return;
+                Drop(device);
             }
             else
             {
@@ -165,10 +168,16 @@ namespace LittleWarrior.Properties
             }
             else if(_CurrentRigidBody.transform.CompareTag("ThrowingWeapon"))
             {
-                _CurrentRigidBody.velocity = device.velocity;
-                _CurrentRigidBody.angularVelocity = device.angularVelocity;
+                GameObject go = _CurrentRigidBody.GetComponent<LW_GrenadeThrower>().Clone();
+                
+                go.GetComponent<Rigidbody>().velocity = device.velocity;
+                go.GetComponent<Rigidbody>().angularVelocity = device.angularVelocity;
 
-                _CurrentRigidBody.GetComponent<LW_GrenadeThrower>().ThrowTheGrenade(holdingObjectPosition.transform.forward);
+                go.GetComponent<Rigidbody>().GetComponent<LW_GrenadeThrower>().ThrowTheGrenade(holdingObjectPosition.transform.forward);
+            }
+            else
+            {
+                return;
             }
 
             _AttachJoint.connectedBody = null;

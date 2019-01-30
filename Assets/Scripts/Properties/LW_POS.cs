@@ -13,6 +13,11 @@ namespace LittleWarrior.Properties
 
         private void Start()
         {
+            Invoke("Initialize", 1.5f);
+        }
+
+        private void Initialize()
+        {
             text = GetComponentInChildren<Text>();
             PL = LW_PlayerInventory.Instance;
             text.text = "Your Current Balance:";

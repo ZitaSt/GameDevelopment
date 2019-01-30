@@ -23,7 +23,6 @@ namespace LittleWarrior.Weapon
 
         private AudioSource _AudioSource;
 
-
         void Awake()
         {
             _AudioSource = this.GetComponent<AudioSource>();
@@ -64,22 +63,25 @@ namespace LittleWarrior.Weapon
 
 
             Collider[] col = Physics.OverlapSphere(transform.position, blastRadius);
-
             foreach(Collider c in col)
             {
-                Rigidbody rb = c.GetComponent<Rigidbody>();
-                if(rb)
+                if(c.gameObject.layer == 10)
                 {
-                    rb.AddExplosionForce(explosionForce, transform.position, blastRadius);
+                    Rigidbody rb = c.GetComponent<Rigidbody>();
+                    if (rb)
+                    {
+                        rb.AddExplosionForce(explosionForce, transform.position, blastRadius);
+                    }
+
+                    var hp = c.GetComponent<LW_Target>();
+                    if (hp)
+                    {
+                        Vector3 cpp = c.ClosestPoint(transform.position);
+                        float distance = (cpp - transform.position).sqrMagnitude;
+                        hp.TakeDamage((distance * damagePoints) / blastRadius);
+                    }
                 }
 
-                var hp = c.GetComponent<LW_Target>();
-                if(hp)
-                {
-                    Vector3 cpp = c.ClosestPoint(transform.position);
-                    float distance = (cpp - transform.position).sqrMagnitude;
-                    hp.TakeDamage((distance * damagePoints) / blastRadius);
-                }
             }
 
             Destroy(gameObject);

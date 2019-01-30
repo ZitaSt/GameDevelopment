@@ -14,8 +14,9 @@ namespace LittleWarrior.Managers
         private Dictionary<WeaponTypes, int> _Bullets;
         private Dictionary<Currency, int> _Currencies;
         public List<LW_Weapon> purchasedWeapons = new List<LW_Weapon>();
+        public LW_RightHand rh;
 
-        public int startingAmountDollar = 500;
+        public int startingAmountDollar = 1000;
 
         protected LW_PlayerInventory()
         {
@@ -157,7 +158,7 @@ namespace LittleWarrior.Managers
                     return;
                 }
             }
-            purchasedWeapons.Add(wp);
+            purchasedWeapons.Add(rh.ActiveWeapon());
             LW_POS pos = GameObject.FindGameObjectWithTag("POS").GetComponent<LW_POS>();
             pos.UpdateBalance();
             //_Bullets.Add(wp.GetComponent<LW_WeaponIndex>().weaponIndex, wp.bulletsPerMag);

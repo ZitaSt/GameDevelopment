@@ -5,6 +5,7 @@ using Valve.VR;
 using LittleWarrior.Weapon;
 using LittleWarrior.Properties;
 using LittleWarrior.Enums;
+using LittleWarrior.Managers;
 
 namespace LittleWarrior.Managers
 {
@@ -12,6 +13,7 @@ namespace LittleWarrior.Managers
     {
         public SteamVR_Controller.Device device;
         public Controller controller;
+        public LW_RightHand rh;
 
         private SteamVR_TrackedObject _TrackedObject = null;
         private LW_Weapon _CurrentWeapon = null;
@@ -90,7 +92,7 @@ namespace LittleWarrior.Managers
                 }
                 else if (controller == Controller.Left)
                 {
-                    return;
+                    rh.SwitchWeapon();
                 }    
             }
 

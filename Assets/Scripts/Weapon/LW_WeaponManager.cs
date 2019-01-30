@@ -25,12 +25,12 @@ namespace LittleWarrior.Weapon
 
         private void Update()
         {
-            //if(Input.GetAxis("Mous ScrolWheel") > 0.0f &&
+            //if (Input.GetAxis("Mous ScrolWheel") > 0.0f &&
             //   !_IsSwitching)
             //{
             //    _Index++;
 
-            //    if(_Index > _Weapons.Count - 1)
+            //    if (_Index > _Weapons.Count - 1)
             //    {
             //        _Index = 0;
             //    }

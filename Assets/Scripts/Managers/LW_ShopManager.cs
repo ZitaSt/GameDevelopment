@@ -26,11 +26,7 @@ namespace LittleWarrior.Managers
             for(int i = 0; i < childcount; i++)
             {
                 _Containers[i] = this.transform.GetChild(i).transform;
-            }
-
-            GM = LW_GameManager.Instance;
-            PL = LW_PlayerInventory.Instance;
-            
+            }            
         }
 
         private void Start()
@@ -44,19 +40,26 @@ namespace LittleWarrior.Managers
                     print("XXXX Weapon without weaponindex profile at index: " + i);
                     Debug.Break();
                 }
-                if (wi.openInLevel == GM.Level)
+                else
                 {
                     GameObject go = Instantiate(weaponsList[i], _Containers[j].transform);
                     _ProvidedGoods.Add(go);
                     j++;
                 }
             }
+
+            GM = LW_GameManager.Instance;
+            PL = LW_PlayerInventory.Instance;
         }
 
         private void Update()
         {
             foreach(GameObject go in _ProvidedGoods)
             {
+                if(go == null)
+                {
+                    return;
+                }
                 if(go.transform.parent != null &&
                     go.transform.parent.name == "HoldRight")
                 {

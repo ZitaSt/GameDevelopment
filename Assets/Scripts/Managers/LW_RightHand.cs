@@ -4,6 +4,7 @@ using UnityEngine;
 using LittleWarrior.Weapon;
 using LittleWarrior.Slaves;
 using LittleWarrior.Properties;
+using LittleWarrior.Managers;
 
 namespace LittleWarrior.Managers
 {
@@ -14,11 +15,13 @@ namespace LittleWarrior.Managers
         private bool _HoldsWeapon = false;
         private int _ActiveWeaponIndex = 0;
 
+        private LW_PlayerInventory PI;
+
         private void Start()
         {
-            for(int i = 0; i < this.transform.childCount; i++)
+            for (int i = 0; i < this.transform.childCount; i++)
             {
-                if(this.transform.GetChild(i).GetComponent<LW_WeaponIndex>())
+                if (this.transform.GetChild(i).GetComponent<LW_WeaponIndex>())
                 {
                     _Weapons.Add(this.transform.GetChild(i).gameObject);
                     this.transform.GetChild(i).gameObject.SetActive(false);
@@ -65,6 +68,30 @@ namespace LittleWarrior.Managers
             Transform p = this.transform.parent;
             _TempWeapon.GetComponent<LW_ObjectReturn>().SetLastInteraction(p.GetComponent<LW_ViveInteraction>());
             
+        }
+
+        public LW_Weapon ActiveWeapon()
+        {
+            return _Weapons[_ActiveWeaponIndex].GetComponent<LW_Weapon>();
+        }
+
+        public void SwitchWeapon()
+        {
+            for(int i = 0; i < _Weapons.Count; i++)
+            {
+                PI = LW_PlayerInventory.Instance;
+                List<LW_Weapon> pw = PI.purchasedWeapons;
+                for(int j = 0; j < pw.Count; j++)
+                {
+                    if(_Weapons[i].GetComponent<LW_WeaponIndex>().weaponIndex ==
+                       pw[j].GetComponent<LW_WeaponIndex>().weaponIndex)
+                    {
+                        _Weapons[_ActiveWeaponIndex].gameObject.SetActive(false);
+                        _ActiveWeaponIndex = i;
+                        _Weapons[_ActiveWeaponIndex].gameObject.SetActive(true);
+                    }
+                }
+            }
         }
 
     }

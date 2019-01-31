@@ -2772,6 +2772,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 7.1140003
       objectReference: {fileID: 0}
+    - target: {fileID: 1154621328220916, guid: 092b26600525508448f00dc2fa50eafb, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 092b26600525508448f00dc2fa50eafb, type: 2}
   m_IsPrefabAsset: 0
@@ -4609,7 +4613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombieEnemies:
   - {fileID: 1515125877583100, guid: 1e42c69dfed3d5c4dbf54485501b3271, type: 2}
-  zombiesInSpawnPoint: 10
+  zombiesInSpawnPoint: 1
   intervalBetweenSpawns: 3
   spawnPoints:
   - {fileID: 442725362}

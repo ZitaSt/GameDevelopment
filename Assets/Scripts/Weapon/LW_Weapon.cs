@@ -99,6 +99,7 @@ namespace LittleWarrior.Weapon
         {
             if (_BulletsLeft > 0 && !_IsReloading)
             {
+                Debug.Log("Fire");
                 Fire();
             }
             else

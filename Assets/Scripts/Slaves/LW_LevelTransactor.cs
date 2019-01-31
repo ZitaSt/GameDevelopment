@@ -38,9 +38,9 @@ namespace LittleWarrior.Slaves
                         LW_SceneLoaderAsync.Instance.LoadScene("Shack");
                     }
                     break;
-                case 1:
+                case 2:
                     {
-
+                        LW_SceneLoaderAsync.Instance.LoadScene("City");
                     }
                     break;
                 default:

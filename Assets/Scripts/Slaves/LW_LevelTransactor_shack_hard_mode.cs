@@ -25,13 +25,30 @@ namespace LittleWarrior.Slaves
 
         private void HandleOnStateChange()
         {
-            GM.SetGameState(GameState.Level, true);
+            GM.SetGameState(GameState.Level, false);
             Invoke("LoadLevel", 2.0f);
         }
 
         private void LoadLevel()
         {
-            LW_SceneLoaderAsync.Instance.LoadScene("Shack_hard_mode");
+            switch (GM.Level)
+            {
+                case 0:
+                    {
+                        LW_SceneLoaderAsync.Instance.LoadScene("Shack_hard_mode");
+                    }
+                    break;
+                case 2:
+                    {
+                        LW_SceneLoaderAsync.Instance.LoadScene("City_hard_mode");
+                    }
+                    break;
+                default:
+                    {
+
+                    }
+                    break;
+            }
         }
     }
 }

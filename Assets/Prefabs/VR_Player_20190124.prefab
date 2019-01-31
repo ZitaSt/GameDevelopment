@@ -1974,6 +1974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 1
+  rh: {fileID: 0}
   collidingObject: {fileID: 0}
   objectInHand: {fileID: 0}
 --- !u!114 &114278093845671308
@@ -2130,6 +2131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 0
+  rh: {fileID: 0}
   collidingObject: {fileID: 0}
   objectInHand: {fileID: 0}
 --- !u!114 &114722843662936410

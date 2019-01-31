@@ -29,7 +29,8 @@ namespace LittleWarrior.Managers
         public void SetGameState(GameState state, bool levelfinished)
         {
             this.gameState = state;
-            if(levelfinished)
+
+            if (levelfinished)
             {
                 RequestLevelChange();
             }

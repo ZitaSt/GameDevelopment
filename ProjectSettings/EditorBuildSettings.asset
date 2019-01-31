@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/City.unity
     guid: 98f097ab23d46f64baccfa3f1b0d5fdb
+  - enabled: 1
+    path: Assets/Scenes/City_hard_mode.unity
+    guid: 34c7f6ae1c2036240b2c6bec8df59cf5
   m_configObjects: {}

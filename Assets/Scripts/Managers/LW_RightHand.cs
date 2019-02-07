@@ -17,6 +17,8 @@ namespace LittleWarrior.Managers
 
         private LW_PlayerInventory PI;
 
+        private bool switched;
+
         private void Start()
         {
             for (int i = 0; i < this.transform.childCount; i++)
@@ -77,23 +79,28 @@ namespace LittleWarrior.Managers
 
         public void SwitchWeapon()
         {
+            switched = false;
+
             for(int i = 0; i < _Weapons.Count; i++)
             {
                 PI = LW_PlayerInventory.Instance;
                 List<LW_Weapon> pw = PI.purchasedWeapons;
                 for(int j = 0; j < pw.Count; j++)
                 {
-                    if(_Weapons[i].GetComponent<LW_WeaponIndex>().weaponIndex ==
-                       pw[j].GetComponent<LW_WeaponIndex>().weaponIndex)
+                    if (!switched)
                     {
-                        _Weapons[_ActiveWeaponIndex].gameObject.SetActive(false);
-                        _ActiveWeaponIndex = i;
-                        _Weapons[_ActiveWeaponIndex].gameObject.SetActive(true);
+                       if ( (_Weapons[i].GetComponent<LW_WeaponIndex>().weaponIndex == pw[j].GetComponent<LW_WeaponIndex>().weaponIndex) &&
+                            (_ActiveWeaponIndex != i) )
+                        {
+                            _Weapons[_ActiveWeaponIndex].gameObject.SetActive(false);
+                            _ActiveWeaponIndex = i;
+                            _Weapons[_ActiveWeaponIndex].gameObject.SetActive(true);
+                            switched = true;
+                        }
                     }
                 }
             }
         }
-
     }
 }
 

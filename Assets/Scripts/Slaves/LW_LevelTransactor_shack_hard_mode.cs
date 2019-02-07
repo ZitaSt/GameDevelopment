@@ -38,7 +38,7 @@ namespace LittleWarrior.Slaves
                         LW_SceneLoaderAsync.Instance.LoadScene("Shack_hard_mode");
                     }
                     break;
-                case 2:
+                case 1:
                     {
                         LW_SceneLoaderAsync.Instance.LoadScene("City_hard_mode");
                     }

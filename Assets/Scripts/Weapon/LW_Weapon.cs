@@ -117,11 +117,10 @@ namespace LittleWarrior.Weapon
 
         private void Fire()
         {
-            if(_LastTimeFiredTimer < fireRate ||
-               _BulletsLeft <= 0)
+            /*if(_LastTimeFiredTimer < fireRate || _BulletsLeft <= 0)
             {
                 return;
-            }
+            }*/
             GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
             var bp = bullet.GetComponent<LW_Bullet>();
             

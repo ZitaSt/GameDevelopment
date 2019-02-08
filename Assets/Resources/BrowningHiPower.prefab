@@ -394,12 +394,12 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1251004281747358, guid: 84fa1b5aa8b576e4ab3ed1b32817806e,
     type: 2}
   shootingRange: 500
-  bulletsPerMag: 12
+  bulletsPerMag: 1000
   bulletSpeed: 20
   fireRate: 0.5
   shootPoint: {fileID: 0}
   spreadFactor: 0
-  bulletDamage: 10
+  bulletDamage: 35
   flare: {fileID: 0}
   bulletsParticle: {fileID: 0}
   bulletsImpact: {fileID: 0}

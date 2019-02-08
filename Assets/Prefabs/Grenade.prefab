@@ -318,7 +318,7 @@ MonoBehaviour:
   delayBeforeExplosion: 3
   blastRadius: 3
   explosionForce: 700
-  damagePoints: 10
+  damagePoints: 50
   isThrowed: 0
   explosionEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   explosionSound: {fileID: 8300000, guid: a03ff8b95a2aa534aa01ffb587541c7b, type: 3}

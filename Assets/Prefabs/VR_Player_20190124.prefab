@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 1
-  rh: {fileID: 0}
+  rh: {fileID: 114825088468463706}
   collidingObject: {fileID: 0}
   objectInHand: {fileID: 0}
 --- !u!114 &114278093845671308
@@ -2086,7 +2086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   purchasedWeapons: []
   rh: {fileID: 114825088468463706}
-  startingAmountDollar: 1000
+  startingAmountDollar: 500
 --- !u!114 &114564441077471594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2131,7 +2131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 0
-  rh: {fileID: 0}
+  rh: {fileID: 114825088468463706}
   collidingObject: {fileID: 0}
   objectInHand: {fileID: 0}
 --- !u!114 &114722843662936410

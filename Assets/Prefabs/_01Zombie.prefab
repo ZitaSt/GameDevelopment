@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5980ff9e1585f045a7777e49b78b2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardDollar: 20
+  rewardDollar: 40
   followingDistance: 500
   stopppingDistance: 1.4
   attackingDistance: 1.4
